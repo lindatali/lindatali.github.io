@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rimowa x Threedium | Linda Tali</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --navy: #0a1628;
+            --tech-blue: #3b82f6;
+            --light-blue: #60a5fa;
+            --purple: #8b5cf6;
+            --silver: #e5e7eb;
+            --light-gray: #f3f4f6;
+            --white: #ffffff;
+            --gray: #6b7280;
+            --luxury-gold: #d4af37;
+            --luxury-black: #1a1a1a;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--navy);
+            background: var(--white);
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1.5rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            text-decoration: none;
+        }
+        
+        .back-link {
+            color: var(--tech-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .project-hero {
+            margin-top: 80px;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--luxury-black), #2d2d2d);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(212, 175, 55, 0.15) 100%);
+        }
+        
+        .project-hero .container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--luxury-gold), #c4a635);
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2rem;
+            color: var(--luxury-black);
+        }
+        
+        .project-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .project-meta {
+            display: flex;
+            gap: 3rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .meta-label {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+        }
+        
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 3rem 0 1.5rem;
+            color: var(--navy);
+        }
+        
+        .content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1rem;
+            color: var(--navy);
+        }
+        
+        .content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+        
+        .luxury-box {
+            background: linear-gradient(135deg, #fef3c7, #fef9e6);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin: 2.5rem 0;
+            border-left: 4px solid var(--luxury-gold);
+        }
+        
+        .luxury-box h4 {
+            color: #92400e;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+            border-top: 4px solid var(--luxury-gold);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--luxury-gold), #c4a635);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--gray);
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .image-placeholder {
+            background: linear-gradient(135deg, var(--light-gray), var(--silver));
+            border-radius: 16px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 3rem 0;
+            border: 2px dashed rgba(212, 175, 55, 0.3);
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        ul li {
+            padding: 0.8rem 0 0.8rem 2rem;
+            position: relative;
+            font-size: 1.05rem;
+            color: var(--gray);
+        }
+        
+        ul li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--luxury-gold);
+            font-weight: bold;
+        }
+        
+        .process-steps {
+            background: var(--light-gray);
+            padding: 3rem;
+            border-radius: 16px;
+            margin: 3rem 0;
+        }
+        
+        .step {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--silver);
+        }
+        
+        .step:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: var(--luxury-gold);
+            color: var(--luxury-black);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+        
+        .step h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--navy);
+        }
+        
+        @media (max-width: 768px) {
+            .project-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">LINDA TALI</a>
+            <a href="index.html#projects" class="back-link">← Back to Projects</a>
+        </div>
+    </nav>
+
+    <section class="project-hero">
+        <div class="container">
+            <span class="project-tag">Luxury 3D · Complex Animation</span>
+            <h1>Rimowa x Threedium Collaboration</h1>
+            <p style="font-size: 1.3rem; opacity: 0.9; line-height: 1.8;">Project Manager for technically complex luxury luggage 3D visualization project. Coordinated tight-knit collaboration between Alpha3D and Threedium to deliver animation-ready 3D models for Rimowa's entire bag and suitcase collection, meeting strict quality control standards.</p>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Project Manager</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Client</span>
+                    <span class="meta-value">Rimowa (LVMH)</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Partner</span>
+                    <span class="meta-value">Threedium</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Company</span>
+                    <span class="meta-value">Alpha3D</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="content">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">LVMH</span>
+                <span class="stat-label">Luxury Brand</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">100+</span>
+                <span class="stat-label">3D Models Delivered</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">2</span>
+                <span class="stat-label">Companies Coordinated</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">High</span>
+                <span class="stat-label">Technical Complexity</span>
+            </div>
+        </div>
+
+        <h2>Project Context</h2>
+        <p>Rimowa, the iconic LVMH-owned luxury luggage brand, partnered with Threedium to bring their entire product catalog to life through interactive 3D and AR experiences on their website. But Threedium specialized in animation and real-time rendering—not base 3D modeling. That's where Alpha3D came in.</p>
+
+        <p>As Project Manager at Alpha3D, I was tasked with coordinating a complex three-party collaboration: Rimowa (client), Threedium (animation partner), and Alpha3D (modeling provider). The challenge? Deliver animation-ready 3D models of Rimowa's bags and suitcases that met both Threedium's technical specifications and Rimowa's exacting luxury standards.</p>
+
+        <div class="image-placeholder">
+            <p>💼 Image: Rimowa iconic grooved aluminum suitcase design</p>
+        </div>
+
+        <h2>Why This Project Was Technically Complex</h2>
+
+        <div class="luxury-box">
+            <h4>🎯 The Unique Challenge</h4>
+            <p>This wasn't standard 3D modeling. Rimowa's products needed to be animated—suitcases opening, handles extending, wheels rotating. That meant our models required:</p>
+            <ul>
+                <li><strong>Proper Topology:</strong> Clean edge loops for deformation without artifacts</li>
+                <li><strong>Modular Construction:</strong> Separate components (body, handle, wheels, zippers) that could be individually animated</li>
+                <li><strong>Rigging-Ready Geometry:</strong> Models structured for Threedium's animation team to add bones and controls</li>
+                <li><strong>1:1 Accuracy:</strong> Exact physical dimensions and proportions of real Rimowa products</li>
+                <li><strong>Luxury-Grade Materials:</strong> Realistic textures for aluminum grooves, leather handles, polycarbonate shells</li>
+            </ul>
+        </div>
+
+        <p>Most 3D modeling work is "hero assets"—static, beautiful objects for product pages. This required deep coordination between modelers (Alpha3D), animators (Threedium), and brand stakeholders (Rimowa) to ensure our deliverables would actually work downstream.</p>
+
+        <h2>My Role & Responsibilities</h2>
+
+        <h3>Three-Party Coordination</h3>
+        <p>I served as the central coordination point between three organizations with different priorities:</p>
+
+        <ul>
+            <li><strong>Rimowa:</strong> Brand standards, approval workflows, product reference materials, feedback cycles</li>
+            <li><strong>Threedium:</strong> Technical specifications, file format requirements, animation needs, quality gates</li>
+            <li><strong>Alpha3D:</strong> Modeling team allocation, production timelines, QA processes, budget management</li>
+        </ul>
+
+        <h3>Workflow Documentation & Process Design</h3>
+        <div class="luxury-box">
+            <h4>📋 Critical Early Investment</h4>
+            <p>Before starting production, I invested heavily in documenting workflows and establishing communication protocols. This upfront work was essential because:</p>
+            <ul>
+                <li>Teams were in different time zones (Estonia, UK, Germany)</li>
+                <li>Handoffs between Alpha3D and Threedium needed to be seamless</li>
+                <li>Quality standards were non-negotiable for luxury brand</li>
+                <li>Multiple iterations were expected—we needed efficient revision cycles</li>
+            </ul>
+        </div>
+
+        <p>I created detailed documentation covering:</p>
+        <ul>
+            <li>File naming conventions and folder structures</li>
+            <li>Model delivery specifications (polygon counts, UV unwrapping, material channels)</li>
+            <li>QA checkpoints before handoff to Threedium</li>
+            <li>Feedback loops and revision request procedures</li>
+            <li>Escalation paths for technical blockers</li>
+        </ul>
+
+        <div class="image-placeholder">
+            <p>📊 Image: Workflow diagram showing Alpha3D → Threedium → Rimowa approval process</p>
+        </div>
+
+        <h3>Price Negotiation & Budget Management</h3>
+        <p>One of my key contributions was negotiating pricing that balanced three competing interests:</p>
+
+        <ul>
+            <li><strong>Rimowa's Budget:</strong> LVMH brands expect premium quality but have fixed project budgets</li>
+            <li><strong>Threedium's Margin:</strong> As the prime contractor, they needed profitable pricing</li>
+            <li><strong>Alpha3D's Costs:</strong> High-quality animated models require senior artists—more expensive than standard work</li>
+        </ul>
+
+        <p>Through strategic negotiation, I secured pricing that:</p>
+        <ul>
+            <li>Allowed Alpha3D to assign our most skilled modelers to the project</li>
+            <li>Maintained healthy profit margins for both Alpha3D and Threedium</li>
+            <li>Stayed within Rimowa's budget expectations</li>
+            <li>Set foundation for ongoing partnership with Threedium</li>
+        </ul>
+
+        <h2>Production Process</h2>
+
+        <div class="process-steps">
+            <div class="step">
+                <span class="step-number">1</span>
+                <h4>Kickoff & Requirements Gathering</h4>
+                <p>Facilitated joint kickoff call with all three parties. Collected Rimowa product references (photos, CAD files, physical measurements). Documented Threedium's technical requirements for animation-ready models.</p>
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <h4>Pilot Asset Production</h4>
+                <p>Selected one representative suitcase as pilot. Alpha3D modeled it according to specs. Sent to Threedium for animation test. Gathered feedback on what worked and what needed adjustment. Refined workflow based on learnings.</p>
+            </div>
+
+            <div class="step">
+                <span class="step-number">3</span>
+                <h4>Team Allocation & Training</h4>
+                <p>Assigned multiple specialized teams at Alpha3D—one focused on hard-surface modeling (suitcase bodies), another on soft goods (leather handles, straps). Conducted training session on Threedium's technical requirements to ensure consistency.</p>
+            </div>
+
+            <div class="step">
+                <span class="step-number">4</span>
+                <h4>Scaled Production</h4>
+                <p>Moved into full production across Rimowa's product line. Maintained weekly check-ins with Threedium on quality and technical fit. Coordinated feedback from Rimowa on brand accuracy. Managed parallel workstreams to meet aggressive timeline.</p>
+            </div>
+
+            <div class="step">
+                <span class="step-number">5</span>
+                <h4>Rigorous QA & Handoff</h4>
+                <p>Every model went through multi-stage QA: (1) Alpha3D internal review, (2) technical validation against Threedium specs, (3) visual review by Rimowa stakeholders. Only after all three approvals did models move to Threedium for animation.</p>
+            </div>
+
+            <div class="step">
+                <span class="step-number">6</span>
+                <h4>Post-Delivery Support</h4>
+                <p>Remained available for revision requests as Threedium began animation work. Some models needed topology adjustments when deformation revealed issues. Quick turnaround on fixes maintained project momentum.</p>
+            </div>
+        </div>
+
+        <h2>Key Challenges & Solutions</h2>
+
+        <h3>Challenge 1: Strict Quality Control</h3>
+        <div class="luxury-box">
+            <p><strong>The Problem:</strong> Rimowa is an LVMH brand—quality standards are non-negotiable. Models needed to be pixel-perfect representations of iconic designs. Any visible imperfections would be rejected.</p>
+            
+            <p><strong>My Solution:</strong> Implemented multi-stakeholder QA process where models couldn't proceed without sign-off from Alpha3D, Threedium, AND Rimowa. This caught issues early before they cascaded downstream. Also allocated only senior artists to project—no junior team members who might miss details.</p>
+        </div>
+
+        <h3>Challenge 2: Complex Multi-Team Sync</h3>
+        <div class="luxury-box">
+            <p><strong>The Problem:</strong> Three companies across different time zones needed tight coordination. Miscommunication could derail timelines.</p>
+            
+            <p><strong>My Solution:</strong> Established clear communication protocols—weekly alignment calls, shared Slack channel for quick questions, centralized file repository with version control. I served as single point of contact to prevent conflicting instructions reaching my team.</p>
+        </div>
+
+        <h3>Challenge 3: Animation Requirements Learning Curve</h3>
+        <div class="luxury-box">
+            <p><strong>The Problem:</strong> Alpha3D's team was excellent at static 3D modeling but less experienced with animation-ready topology. First models had issues when Threedium tried to animate them.</p>
+            
+            <p><strong>My Solution:</strong> Used pilot asset as teaching opportunity. Gathered detailed feedback from Threedium on what worked/didn't work. Conducted training session with team on edge loop placement, modular construction, and animation-friendly geometry. Quality improved dramatically after first few assets.</p>
+        </div>
+
+        <div class="image-placeholder">
+            <p>🔧 Image: Technical wireframe view showing clean topology for animation</p>
+        </div>
+
+        <h2>Results & Impact</h2>
+
+        <h3>Project Success</h3>
+        <ul>
+            <li><strong>On-Time Delivery:</strong> Delivered 100+ animation-ready models meeting all technical specifications</li>
+            <li><strong>Quality Achievement:</strong> Met Rimowa's luxury brand standards—zero models rejected in final review</li>
+            <li><strong>Threedium Satisfaction:</strong> Models worked seamlessly for animation team with minimal revision requests</li>
+            <li><strong>Strong Profit Margins:</strong> Project completed within budget with healthy margins for Alpha3D</li>
+        </ul>
+
+        <h3>Strategic Partnership Value</h3>
+        <ul>
+            <li><strong>Threedium Relationship:</strong> Became preferred modeling partner for future luxury brand projects</li>
+            <li><strong>LVMH Portfolio Entry:</strong> Rimowa success opened doors to other LVMH brands for Alpha3D</li>
+            <li><strong>Team Capability Uplift:</strong> Artists gained valuable experience in animation-ready modeling</li>
+            <li><strong>Case Study Asset:</strong> Rimowa became flagship reference for enterprise sales conversations</li>
+        </ul>
+
+        <div class="luxury-box">
+            <h4>💬 Threedium Partnership Feedback</h4>
+            <p>"Linda's project management made this complex three-party collaboration seamless. Her upfront investment in workflow documentation and communication protocols saved us countless hours. The models her team delivered were technically perfect for our animation needs."</p>
+        </div>
+
+        <h2>Key Takeaways</h2>
+
+        <h3>1. Documentation Upfront Saves Time Later</h3>
+        <p>The days spent documenting workflows, technical specs, and communication protocols felt tedious but paid massive dividends. Clear documentation prevented misunderstandings that would have caused costly rework.</p>
+
+        <h3>2. Pilot Assets De-Risk Complex Projects</h3>
+        <p>Testing end-to-end workflow on one asset before scaling production revealed issues we could fix early. Without the pilot, we would have discovered problems after modeling 50+ suitcases—catastrophic waste.</p>
+
+        <h3>3. Multi-Party Projects Need Single Point of Contact</h3>
+        <p>By serving as the coordination hub between Rimowa, Threedium, and Alpha3D, I prevented conflicting instructions and kept everyone aligned. Distributed coordination would have created chaos.</p>
+
+        <h3>4. Invest in Team Training for New Domains</h3>
+        <p>Our team was strong at static modeling but needed education on animation requirements. Rather than hoping they'd figure it out, I facilitated training based on Threedium's feedback. Capability investment paid off immediately.</p>
+
+        <div class="image-placeholder">
+            <p>✨ Image: Final rendered Rimowa AR experience on website showing animated suitcase opening</p>
+        </div>
+
+        <h2>Reflection</h2>
+        <p>The Rimowa project taught me that successful program management of complex partnerships requires equal parts process discipline and relationship building. The technical deliverables were important, but what made this work was investing in clear communication, rigorous documentation, and coordination across organizational boundaries.</p>
+
+        <p>Managing three stakeholders with different priorities—Rimowa's brand standards, Threedium's technical needs, Alpha3D's profitability—required constant balancing. But by establishing clear workflows upfront and serving as the central coordination point, we delivered a project that exceeded all three parties' expectations.</p>
+
+        <p>This collaboration became a template for how Alpha3D worked with agency partners on luxury brand projects. The process we built here scaled to other LVMH brands and high-end clients, generating significant ongoing revenue.</p>
+
+        <div style="text-align: center; margin: 4rem 0;">
+            <a href="https://threedium.io" target="_blank" style="display: inline-block; padding: 1.2rem 3rem; background: linear-gradient(135deg, var(--luxury-gold), #c4a635); color: var(--luxury-black); text-decoration: none; border-radius: 12px; font-weight: 700; margin-right: 1rem;">View Threedium</a>
+            <a href="index.html#projects" style="display: inline-block; padding: 1.2rem 3rem; background: white; color: var(--tech-blue); text-decoration: none; border-radius: 12px; font-weight: 700; border: 2px solid var(--tech-blue);">← Back to Projects</a>
+        </div>
+    </div>
+
+    <footer style="background: var(--navy); color: white; text-align: center; padding: 3rem 2rem;">
+        <p style="color: var(--silver);">&copy; 2025 Linda Tali | Technical Program Manager</p>
+    </footer>
+</body>
+</html>

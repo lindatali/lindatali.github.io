@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miami Art Week AR Experience | Linda Tali</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --navy: #0a1628;
+            --tech-blue: #3b82f6;
+            --light-blue: #60a5fa;
+            --purple: #8b5cf6;
+            --silver: #e5e7eb;
+            --light-gray: #f3f4f6;
+            --white: #ffffff;
+            --gray: #6b7280;
+            --miami-pink: #ff006e;
+            --miami-orange: #fb5607;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--navy);
+            background: var(--white);
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1.5rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            text-decoration: none;
+        }
+        
+        .back-link {
+            color: var(--tech-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .project-hero {
+            margin-top: 80px;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, #1a2742 0%, var(--navy) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 0, 110, 0.1) 100%);
+        }
+        
+        .project-hero .container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--miami-pink), var(--miami-orange));
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2rem;
+        }
+        
+        .project-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .project-meta {
+            display: flex;
+            gap: 3rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .meta-label {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+        }
+        
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 3rem 0 1.5rem;
+            color: var(--navy);
+        }
+        
+        .content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1rem;
+            color: var(--navy);
+        }
+        
+        .content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+        
+        .challenge-box {
+            background: linear-gradient(135deg, #fee2e2, #fef2f2);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin: 2.5rem 0;
+            border-left: 4px solid #ef4444;
+        }
+        
+        .challenge-box h4 {
+            color: #dc2626;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .solution-box {
+            background: linear-gradient(135deg, #d1fae5, #ecfdf5);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin: 2.5rem 0;
+            border-left: 4px solid #10b981;
+        }
+        
+        .solution-box h4 {
+            color: #059669;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--tech-blue);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--tech-blue), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--gray);
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .image-placeholder {
+            background: linear-gradient(135deg, var(--light-gray), var(--silver));
+            border-radius: 16px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 3rem 0;
+            border: 2px dashed rgba(59, 130, 246, 0.3);
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        ul li {
+            padding: 0.8rem 0 0.8rem 2rem;
+            position: relative;
+            font-size: 1.05rem;
+            color: var(--gray);
+        }
+        
+        ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--tech-blue);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+            margin: 3rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--tech-blue);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 11px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--tech-blue);
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px var(--tech-blue);
+        }
+        
+        .timeline-item h4 {
+            font-size: 1.2rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .project-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">LINDA TALI</a>
+            <a href="index.html#projects" class="back-link">← Back to Projects</a>
+        </div>
+    </nav>
+
+    <section class="project-hero">
+        <div class="container">
+            <span class="project-tag">AR Experience · Event PM</span>
+            <h1>Miami Art Week AR Activation</h1>
+            <p style="font-size: 1.3rem; opacity: 0.9; line-height: 1.8;">Lead Project Manager delivering immersive AR art installations for Miami Art Week. Navigated compressed timeline by cutting 50% of scope to protect quality, delivering high-value experience that strengthened client relationships and showcased Augmento's capabilities.</p>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Lead Project Manager</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-value">Compressed (Weeks)</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Company</span>
+                    <span class="meta-value">Augmento</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Outcome</span>
+                    <span class="meta-value">On-time, High Quality</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="content">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">50%</span>
+                <span class="stat-label">Scope Reduction</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">On-Time Delivery</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">High</span>
+                <span class="stat-label">Quality Standard</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">+60%</span>
+                <span class="stat-label">Brand Visibility</span>
+            </div>
+        </div>
+
+        <h2>Project Context</h2>
+        <p>Miami Art Week is one of the art world's premier events, drawing collectors, galleries, and artists from around the globe. Augmento was contracted to deliver AR art installations that would allow attendees to experience digital artwork overlaid on physical gallery spaces—an ambitious technical and creative undertaking.</p>
+
+        <p>As Lead Project Manager, I owned end-to-end delivery: coordinating with the creative team on installation concepts, working with engineers on AR implementation, managing client expectations, and ensuring flawless on-site execution during the event.</p>
+
+        <div class="image-placeholder">
+            <p>🎨 Image: Miami Art Week venue with AR art installations</p>
+        </div>
+
+        <h2>The Critical Challenge</h2>
+
+        <div class="challenge-box">
+            <h4>⚠️ Timeline Pressure Threatens Quality</h4>
+            <p>Midway through the project, it became clear we wouldn't hit the original scope within our deadline without compromising quality. The team had designed an ambitious interactive 3D map with real-time data feeds, multiple AR layers, and complex user interactions.</p>
+            
+            <p><strong>The Risk:</strong> Shipping everything late and buggy would damage client relationships and tarnish Augmento's reputation at a high-visibility event. But cutting scope felt like admitting failure.</p>
+        </div>
+
+        <h3>The Decision</h3>
+        <p>I made the call to cut 50% of planned functionality and focus on delivering a polished, high-value experience on time. This wasn't an easy conversation, but it was the right one.</p>
+
+        <div class="solution-box">
+            <h4>✓ Strategic Scope Reduction</h4>
+            <p><strong>My Process:</strong></p>
+            <ul>
+                <li>Convened stakeholders (CEO, Creative Director, Engineering Lead, Client)</li>
+                <li>Ranked features by value-to-user and effort-to-build</li>
+                <li>Identified "must-haves" vs. "nice-to-haves" through honest client conversation</li>
+                <li>Preserved core AR art viewing experience while cutting complex interactivity</li>
+                <li>Communicated trade-offs transparently: "We can deliver X beautifully, or X+Y+Z poorly"</li>
+            </ul>
+            
+            <p><strong>What We Kept:</strong> Core AR art installations, smooth mobile experience, gallery wayfinding</p>
+            <p><strong>What We Cut:</strong> Real-time 3D map updates, social sharing features, advanced gesture controls</p>
+        </div>
+
+        <h2>Project Execution</h2>
+
+        <h3>Pre-Event Preparation</h3>
+        <ul>
+            <li><strong>Content Coordination:</strong> Worked with artists and Creative Director to finalize AR artwork files and positioning</li>
+            <li><strong>Technical Testing:</strong> Conducted extensive QA on various mobile devices to ensure AR tracking accuracy</li>
+            <li><strong>Stakeholder Alignment:</strong> Kept client updated on progress through weekly check-ins and demos</li>
+            <li><strong>Contingency Planning:</strong> Prepared backup plans for common failure modes (network issues, device compatibility)</li>
+        </ul>
+
+        <h3>On-Site Management</h3>
+        <ul>
+            <li><strong>Setup Coordination:</strong> Managed installation of physical markers and signage</li>
+            <li><strong>Live Support:</strong> Provided real-time troubleshooting for attendees and gallery staff</li>
+            <li><strong>Client Relations:</strong> Stayed accessible to client throughout event for immediate issue resolution</li>
+        </ul>
+
+        <div class="image-placeholder">
+            <p>📱 Image: Attendees experiencing AR artwork through mobile devices</p>
+        </div>
+
+        <h2>Timeline & Milestones</h2>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h4>Week 1-2: Planning & Design</h4>
+                <p>Initial scope definition, creative concepts, technical architecture planning</p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h4>Week 3: Reality Check</h4>
+                <p>Engineering progress review reveals timeline/scope mismatch. Convene stakeholder meeting.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h4>Week 4: Scope Reduction</h4>
+                <p>Cut 50% of features, re-baseline plan, communicate changes to all parties</p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h4>Week 5-6: Focused Development</h4>
+                <p>Engineering team delivers high-quality implementation of core features</p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h4>Week 7: QA & Rehearsal</h4>
+                <p>Extensive testing, client preview, final refinements</p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h4>Event Week: Flawless Execution</h4>
+                <p>On-site delivery, live support, overwhelmingly positive reception</p>
+            </div>
+        </div>
+
+        <h2>Results & Impact</h2>
+
+        <h3>Client Satisfaction</h3>
+        <p>Despite cutting half the scope, client feedback was overwhelmingly positive. Why? Because we delivered a polished, reliable experience that worked flawlessly during the event. They appreciated the honest communication and strategic thinking that protected the project's success.</p>
+
+        <div class="challenge-box" style="background: linear-gradient(135deg, #dbeafe, #eff6ff); border-left-color: var(--tech-blue);">
+            <h4 style="color: var(--tech-blue);">💬 Client Feedback</h4>
+            <p style="color: var(--gray);">"Linda's decision to focus on core quality over feature bloat was exactly right. The AR experience was smooth, beautiful, and our attendees loved it. Her transparency throughout the process built trust."</p>
+        </div>
+
+        <h3>Business Impact</h3>
+        <ul>
+            <li><strong>Brand Visibility:</strong> 60% increase in Augmento brand awareness following Miami Art Week exposure</li>
+            <li><strong>Relationship Strengthening:</strong> Honest scope management deepened client trust, leading to future collaborations</li>
+            <li><strong>Team Morale:</strong> Delivering high-quality work on-time boosted team confidence and pride</li>
+            <li><strong>Case Study Value:</strong> Polished execution created referenceable work for future sales</li>
+        </ul>
+
+        <h3>Internal Lessons</h3>
+        <ul>
+            <li><strong>Process Improvement:</strong> Informed future project scoping to build realistic timelines upfront</li>
+            <li><strong>Client Communication:</strong> Validated transparent stakeholder management as competitive advantage</li>
+            <li><strong>Quality Standards:</strong> Reinforced Augmento's commitment to excellence over feature quantity</li>
+        </ul>
+
+        <div class="image-placeholder">
+            <p>✨ Image: Gallery installation showing AR artwork overlay</p>
+        </div>
+
+        <h2>Project Management Approach</h2>
+
+        <h3>Stakeholder Coordination</h3>
+        <ul>
+            <li><strong>Weekly Status Meetings:</strong> Kept all parties aligned on progress, risks, and decisions</li>
+            <li><strong>Transparent Communication:</strong> Surfaced problems early rather than hoping they'd resolve themselves</li>
+            <li><strong>Decision Documentation:</strong> Recorded scope changes and rationale for future reference</li>
+        </ul>
+
+        <h3>Risk Management</h3>
+        <ul>
+            <li><strong>Proactive Escalation:</strong> Raised timeline concerns as soon as engineering velocity data revealed issues</li>
+            <li><strong>Contingency Planning:</strong> Prepared backup plans for technical failures and environmental challenges</li>
+            <li><strong>Quality Gates:</strong> Established clear QA criteria that wouldn't be compromised for speed</li>
+        </ul>
+
+        <h3>Team Leadership</h3>
+        <ul>
+            <li><strong>Protected Team Bandwidth:</strong> Scope cut allowed engineers to deliver quality work without burnout</li>
+            <li><strong>Clear Priorities:</strong> Ensured everyone knew what was in/out of scope after re-baseline</li>
+            <li><strong>Morale Management:</strong> Framed scope reduction as strategic success, not failure</li>
+        </ul>
+
+        <h2>Key Takeaways</h2>
+
+        <h3>1. Quality > Quantity in High-Stakes Environments</h3>
+        <p>At a premier event like Miami Art Week, a polished limited experience beats a buggy ambitious one every time. Clients remember how the work performed, not what features you promised.</p>
+
+        <h3>2. Honest Communication Builds Trust</h3>
+        <p>Transparently presenting the scope/timeline/quality trade-off and involving stakeholders in the decision turned a potential crisis into a trust-building moment. The client respected the honesty.</p>
+
+        <h3>3. Early Escalation Saves Projects</h3>
+        <p>Surfacing the timeline risk at Week 3 gave us time to course-correct. If I'd waited until Week 6, we'd have been stuck with no good options.</p>
+
+        <h3>4. Strategic Scope Cuts Require Frameworks</h3>
+        <p>Ranking features by value/effort and involving stakeholders in prioritization made the scope reduction feel collaborative rather than arbitrary. Everyone understood the "why" behind each cut.</p>
+
+        <h2>Reflection</h2>
+        <p>Miami Art Week taught me that effective project management isn't about perfect plans—it's about adaptive decision-making when reality diverges from the plan. The hardest part wasn't cutting scope; it was having the conviction to make an unpopular call early enough to matter.</p>
+
+        <p>Delivering on-time with high quality strengthened client relationships more than delivering late with more features ever could. That lesson fundamentally shaped how I approach scope, timelines, and stakeholder management on every project since.</p>
+
+        <div style="text-align: center; margin: 4rem 0;">
+            <a href="https://augmento.com/projects/miami" target="_blank" style="display: inline-block; padding: 1.2rem 3rem; background: linear-gradient(135deg, var(--miami-pink), var(--miami-orange)); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; margin-right: 1rem;">View Project</a>
+            <a href="index.html#projects" style="display: inline-block; padding: 1.2rem 3rem; background: white; color: var(--tech-blue); text-decoration: none; border-radius: 12px; font-weight: 700; border: 2px solid var(--tech-blue);">← Back to Projects</a>
+        </div>
+    </div>
+
+    <footer style="background: var(--navy); color: white; text-align: center; padding: 3rem 2rem;">
+        <p style="color: var(--silver);">&copy; 2025 Linda Tali | Technical Program Manager</p>
+    </footer>
+</body>
+</html>

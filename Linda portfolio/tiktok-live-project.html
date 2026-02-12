@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Live International Expansion | Linda Tali</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --navy: #0a1628;
+            --tech-blue: #3b82f6;
+            --light-blue: #60a5fa;
+            --purple: #8b5cf6;
+            --silver: #e5e7eb;
+            --light-gray: #f3f4f6;
+            --white: #ffffff;
+            --gray: #6b7280;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--navy);
+            background: var(--white);
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1.5rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            text-decoration: none;
+        }
+        
+        .back-link {
+            color: var(--tech-blue);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .back-link:hover {
+            color: var(--light-blue);
+        }
+        
+        /* Hero Section */
+        .project-hero {
+            margin-top: 80px;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--navy), #1a2742);
+            color: white;
+        }
+        
+        .project-hero .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .project-tag {
+            display: inline-block;
+            background: var(--tech-blue);
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2rem;
+        }
+        
+        .project-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+        
+        .project-meta {
+            display: flex;
+            gap: 3rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .meta-label {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        /* Content Section */
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 3rem 0 1.5rem;
+            color: var(--navy);
+            letter-spacing: -0.5px;
+        }
+        
+        .content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1rem;
+            color: var(--navy);
+        }
+        
+        .content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+        
+        .highlight-box {
+            background: var(--light-gray);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin: 2.5rem 0;
+            border-left: 4px solid var(--tech-blue);
+        }
+        
+        .highlight-box h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--tech-blue);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--tech-blue);
+            display: block;
+            letter-spacing: -1px;
+        }
+        
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--gray);
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .image-placeholder {
+            background: linear-gradient(135deg, var(--light-gray), var(--silver));
+            border-radius: 16px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 3rem 0;
+            border: 2px dashed rgba(59, 130, 246, 0.3);
+        }
+        
+        .image-placeholder p {
+            color: var(--gray);
+            font-weight: 600;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        ul li {
+            padding: 0.8rem 0 0.8rem 2rem;
+            position: relative;
+            font-size: 1.05rem;
+            color: var(--gray);
+        }
+        
+        ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--tech-blue);
+            font-weight: bold;
+        }
+        
+        .challenge-solution {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .challenge-card, .solution-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .challenge-card {
+            border-left: 4px solid #ef4444;
+        }
+        
+        .solution-card {
+            border-left: 4px solid #10b981;
+        }
+        
+        .challenge-card h4 {
+            color: #ef4444;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .solution-card h4 {
+            color: #10b981;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .tool-tag {
+            background: var(--light-gray);
+            color: var(--navy);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .project-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .challenge-solution {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">LINDA TALI</a>
+            <a href="index.html#projects" class="back-link">← Back to Projects</a>
+        </div>
+    </nav>
+
+    <section class="project-hero">
+        <div class="container">
+            <span class="project-tag">Global Expansion</span>
+            <h1>TikTok Live International Expansion</h1>
+            <p style="font-size: 1.3rem; opacity: 0.9; line-height: 1.8;">Pioneering live-stream commerce expansion from China to Western markets, managing multi-region production operations and driving 35% revenue growth through data-driven optimization.</p>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Project & Livestream Manager</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Duration</span>
+                    <span class="meta-value">Dec 2019 – Apr 2022</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Location</span>
+                    <span class="meta-value">Shanghai, China</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Company</span>
+                    <span class="meta-value">ByteDance</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="content">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">35%</span>
+                <span class="stat-label">Revenue Growth</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">1,000+</span>
+                <span class="stat-label">Peak Concurrent Viewers</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">5</span>
+                <span class="stat-label">Daily Livestreams</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">45%</span>
+                <span class="stat-label">Conversion Increase</span>
+            </div>
+        </div>
+
+        <h2>Project Overview</h2>
+        <p>When I joined ByteDance in Shanghai, the company was at a pivotal moment: live-stream commerce was exploding in China, and leadership wanted to export this success to Western markets. I was hired as a Project & Livestream Manager to spearhead the international expansion of TikTok Live and Amazon Live sales operations targeting USA and European audiences.</p>
+
+        <p>This wasn't just about translating content—it required building production operations from scratch, navigating massive time zone challenges (China/US/EU), understanding Western consumer behavior, and proving that a sales model beloved in Asia could succeed in skeptical Western markets.</p>
+
+        <div class="image-placeholder">
+            <p>📸 Image: TikTok Live studio setup in Shanghai with multi-camera setup and product displays</p>
+        </div>
+
+        <h2>The Challenge</h2>
+        
+        <div class="challenge-solution">
+            <div class="challenge-card">
+                <h4>Key Challenges</h4>
+                <ul style="padding-left: 0;">
+                    <li>Live-stream shopping was virtually unknown in Western markets</li>
+                    <li>Operating across 12+ hour time zones (Shanghai to USA/EU)</li>
+                    <li>Building production capabilities with no local playbook</li>
+                    <li>Limited initial engagement (started with 1-2 concurrent viewers)</li>
+                    <li>Stock coordination across continents</li>
+                </ul>
+            </div>
+            
+            <div class="solution-card">
+                <h4>My Solution</h4>
+                <ul style="padding-left: 0;">
+                    <li>Data-driven market expansion (UK→USA→Germany/Ireland)</li>
+                    <li>A/B testing timing, content, and promotional mechanics</li>
+                    <li>Introduced gamification (Lucky Draw) for engagement</li>
+                    <li>Built analytics framework for post-stream optimization</li>
+                    <li>Coordinated regional inventory with production calendars</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>My Role & Responsibilities</h2>
+        
+        <h3>Pre-Production Planning</h3>
+        <p>I owned the entire pre-production workflow for up to 5 daily livestreams. This meant:</p>
+        <ul>
+            <li><strong>Content Calendar Planning:</strong> Coordinating promotional calendars by region (Christmas in USA, local holidays in EU)</li>
+            <li><strong>Script Writing:</strong> Crafting culturally-appropriate sales scripts for Western audiences</li>
+            <li><strong>Product Selection:</strong> Choosing seasonal products based on availability and regional demand</li>
+            <li><strong>Inventory Coordination:</strong> Ensuring stock levels in target markets matched promotional plans</li>
+            <li><strong>Team Coordination:</strong> Managing 5-person on-site production teams per session</li>
+        </ul>
+
+        <div class="image-placeholder">
+            <p>📸 Image: Behind-the-scenes of livestream production showing teleprompter, lighting setup, and product staging area</p>
+        </div>
+
+        <h3>Technical Setup & Live Execution</h3>
+        <p>I was typically the first person on-site each day, responsible for:</p>
+        <ul>
+            <li><strong>VPN Configuration:</strong> Setting up phones and cameras to stream to specific regional TikTok/Amazon Live accounts</li>
+            <li><strong>Studio Setup:</strong> Lighting, camera angles, product displays, audio checks</li>
+            <li><strong>Real-Time Hosting:</strong> I personally hosted streams when needed, covering gaps in the schedule</li>
+            <li><strong>Live Troubleshooting:</strong> When VPN connections dropped or technical issues arose, I resolved them in real-time to minimize downtime</li>
+        </ul>
+
+        <div class="highlight-box">
+            <h4>💡 The "Lucky Draw" Innovation</h4>
+            <p>One of my biggest wins was introducing the Lucky Draw mechanic to our livestreams. While the team was brainstorming engagement tactics, I suggested gamifying the experience with prizes and live winner announcements.</p>
+            <p><strong>Impact:</strong> This single innovation drove our highest engagement numbers—scaling from 250-400 average viewers to 1,000+ peak concurrent viewers. The Lucky Draw segments also drove significant additional sales, creating a true "win-win" for both engagement and revenue.</p>
+        </div>
+
+        <h3>Post-Production Analytics & Iteration</h3>
+        <p>After each stream, I worked closely with ByteDance's analytics team to dissect performance:</p>
+        <ul>
+            <li><strong>Data Analysis:</strong> TikTok Analytics and Google Analytics to measure engagement, watch time, conversion rates</li>
+            <li><strong>A/B Testing:</strong> Systematically testing time slots (morning/afternoon/evening), promotional mechanics, content formats</li>
+            <li><strong>Market Expansion Decisions:</strong> Using data to inform which markets to expand into next (UK → USA → Germany/Ireland)</li>
+        </ul>
+
+        <div class="image-placeholder">
+            <p>📊 Image: Analytics dashboard showing viewer engagement metrics, watch time graphs, and conversion funnel</p>
+        </div>
+
+        <h2>Key Results</h2>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">35%</span>
+                <span class="stat-label">Overseas Sales Growth</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">60%</span>
+                <span class="stat-label">Watch Time Increase</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">10min</span>
+                <span class="stat-label">Average Watch Duration</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">4</span>
+                <span class="stat-label">Markets Launched</span>
+            </div>
+        </div>
+
+        <h3>Business Impact</h3>
+        <ul>
+            <li><strong>Revenue Growth:</strong> Achieved 35% increase in overseas livestream sales</li>
+            <li><strong>Market Validation:</strong> Successfully proved live-stream commerce viability in Western markets</li>
+            <li><strong>Scaled Expansion:</strong> Grew from UK pilot → USA → Germany → Ireland based on data-driven success</li>
+            <li><strong>Engagement Metrics:</strong> +45% conversion rate, +60% watch time through systematic optimization</li>
+            <li><strong>Viewership Scale:</strong> Grew from 1-2 initial viewers to 1,000+ peak concurrent viewers</li>
+        </ul>
+
+        <h3>Operational Excellence</h3>
+        <ul>
+            <li><strong>Production Volume:</strong> Managed up to 5 daily livestreams (1-3 hours each) across multiple time zones</li>
+            <li><strong>Uptime:</strong> Maintained high stream reliability through proactive technical troubleshooting</li>
+            <li><strong>Team Coordination:</strong> Synchronized 5-person production teams per session across irregular hours</li>
+        </ul>
+
+        <h2>Technical Stack</h2>
+        <div class="tools-list">
+            <span class="tool-tag">TikTok Analytics</span>
+            <span class="tool-tag">Google Analytics</span>
+            <span class="tool-tag">Amazon Live</span>
+            <span class="tool-tag">VPN Configuration</span>
+            <span class="tool-tag">Multi-Camera Setup</span>
+            <span class="tool-tag">OBS Studio</span>
+            <span class="tool-tag">Content Management Systems</span>
+        </div>
+
+        <h2>Lessons Learned</h2>
+        
+        <h3>1. Cultural Adaptation is Critical</h3>
+        <p>What worked in China didn't automatically translate to Western audiences. We had to test promotional mechanics, adjust product selections, and refine hosting styles based on regional preferences.</p>
+
+        <h3>2. Data Beats Intuition</h3>
+        <p>Systematic A/B testing of time slots, content formats, and promotional tactics allowed us to optimize performance far beyond initial assumptions. The data showed us that evening streams in US time performed 40% better than morning slots—something we wouldn't have guessed.</p>
+
+        <h3>3. Gamification Drives Engagement</h3>
+        <p>The Lucky Draw innovation proved that even in unfamiliar formats, universal mechanics (prizes, games, excitement) can break through cultural barriers and drive meaningful engagement.</p>
+
+        <h3>4. Time Zone Management Requires Discipline</h3>
+        <p>Operating across China/US/EU time zones meant early mornings and late nights were unavoidable. Clear scheduling, strong communication, and team rotation strategies were essential to sustainability.</p>
+
+        <div class="image-placeholder">
+            <p>📸 Image: Team celebration after hitting 1,000 concurrent viewers milestone</p>
+        </div>
+
+        <h2>Reflection</h2>
+        <p>This project was one of the most demanding of my career—managing live production across brutal time zones, pioneering an unproven business model in skeptical markets, and iterating rapidly based on real-time data. But it was also one of the most rewarding.</p>
+
+        <p>Seeing live-stream commerce take root in Western markets, watching our viewer numbers climb from single digits to thousands, and knowing our work contributed to 35% revenue growth—that validated every early morning and late night.</p>
+
+        <p>The skills I developed—cross-cultural product adaptation, data-driven optimization, real-time operational management, and global team coordination—have become core to how I approach every program since.</p>
+
+        <div style="text-align: center; margin: 4rem 0;">
+            <a href="index.html#projects" style="display: inline-block; padding: 1.2rem 3rem; background: var(--tech-blue); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; font-size: 1.05rem;">← Back to All Projects</a>
+        </div>
+    </div>
+
+    <footer style="background: var(--navy); color: white; text-align: center; padding: 3rem 2rem;">
+        <p style="color: var(--silver);">&copy; 2025 Linda Tali | Technical Program Manager</p>
+    </footer>
+</body>
+</html>
