@@ -778,21 +778,21 @@
                 <span class="read-more">View Full Case Study</span>
             </a>
 
-            <a href="https://lindatali.blog/2024/12/22/how-i-built-an-agentic-ai-coordination-layer-that-turns-supply-chain-chaos-into-data-driven-decisions/" target="_blank" class="project-card">
-                <span class="project-tag">Agentic AI</span>
-                <h3>SmartShoe AI Coordination Layer</h3>
-                <p>Led development of agentic AI workflow for supply-chain decision-making with multi-step approvals and automated risk assessment. Architected multi-agent autonomous system.</p>
-                <span class="read-more">Read Full Blog Post</span>
+            <a href="deloitte-datathon.html" class="project-card">
+                <span class="project-tag">Datathon</span>
+                <h3>Deloitte Datathon 2026: 2nd Place</h3>
+                <p>Secured 2nd place out of 12 teams proposing first-in-nation health system-funded tobacco retailer buyback program. 38:1 ROI with $555M projected value addressing cancer prevention in underserved communities.</p>
+                <span class="read-more">Read Case Study</span>
             </a>
 
-            <a href="https://augmento.com/projects/worlds-away" target="_blank" class="project-card">
-                <span class="project-tag">AR/XR</span>
+            <a href="worldsaway-festival.html" class="project-card">
+                <span class="project-tag">XR Experience</span>
                 <h3>World's Away Festival</h3>
                 <p>Product Manager for immersive AR experience as Title Tech Sponsor. Transformed Monterey County Fairgrounds into interactive Mixed Reality playground, achieving 95% adoption with 7,400+ attendees.</p>
                 <span class="read-more">View Project</span>
             </a>
 
-            <a href="https://augmento.com/projects/art-spaces" target="_blank" class="project-card">
+            <a href="artspaces-project.html" class="project-card">
                 <span class="project-tag">Product Management</span>
                 <h3>ArtSpaces Platform</h3>
                 <p>Senior PM on founding team managing 0→1 technical roadmaps for AR/AI experiences. Coordinated cross-functional teams across Europe, US, and Bali to deliver immersive art platform.</p>
@@ -813,7 +813,7 @@
                 <span class="read-more">Read Full Case Study</span>
             </a>
 
-            <a href="https://augmento.com/projects/miami" target="_blank" class="project-card">
+            <a href="miami-artweek-project.html" class="project-card">
                 <span class="project-tag">AR Experience</span>
                 <h3>Miami Art Week</h3>
                 <p>Delivered immersive AR activations for Miami Art Week, bringing digital art to life through cutting-edge augmented reality technology.</p>
@@ -883,11 +883,35 @@
             });
         });
         
-        // Mobile menu toggle (basic implementation)
+        // Mobile menu toggle (improved)
         document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
             const navList = document.querySelector('nav ul');
             if (navList) {
-                navList.style.display = navList.style.display === 'flex' ? 'none' : 'flex';
-                navList.style.flexDirection = 'column';
-                navList.style.position = 'absolute';
-                navList.style.
+                // Toggle display
+                if (navList.style.display === 'flex') {
+                    navList.style.display = 'none';
+                } else {
+                    navList.style.display = 'flex';
+                    navList.style.flexDirection = 'column';
+                    navList.style.position = 'absolute';
+                    navList.style.top = '100%';
+                    navList.style.left = '0';
+                    navList.style.right = '0';
+                    navList.style.background = 'white';
+                    navList.style.padding = '2rem';
+                    navList.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+                    navList.style.zIndex = '999';
+                }
+            }
+        });
+        
+        // Close menu when clicking a link (mobile)
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', function() {
+                const navList = document.querySelector('nav ul');
+                if (window.innerWidth <= 968 && navList) {
+                    navList.style.display = 'none';
+                }
+            });
+        });
+    </script>
