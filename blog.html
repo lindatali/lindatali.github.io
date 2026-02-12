@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Linda Tali's blog - Technical insights from competitions, case studies, and hands-on projects. Featuring Deloitte Datathon, AI implementations, and product management learnings.">
+    <meta name="keywords" content="Linda Tali, Technical Blog, Datathon, AI Projects, Product Management, Case Studies">
+    <title>Blog & Competitions | Linda Tali</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --navy: #0a1628;
+            --tech-blue: #3b82f6;
+            --light-blue: #60a5fa;
+            --purple: #8b5cf6;
+            --silver: #e5e7eb;
+            --light-gray: #f3f4f6;
+            --white: #ffffff;
+            --gray: #6b7280;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--navy);
+            background: var(--white);
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1.5rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            text-decoration: none;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+        
+        nav a {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--tech-blue);
+        }
+        
+        .hero {
+            margin-top: 80px;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--navy), #1e3a5f);
+            color: white;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            color: var(--navy);
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-bottom: 5rem;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.2);
+        }
+        
+        .blog-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, var(--tech-blue), var(--purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        
+        .blog-content {
+            padding: 2rem;
+        }
+        
+        .blog-tag {
+            display: inline-block;
+            background: var(--tech-blue);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--navy);
+        }
+        
+        .blog-card p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 1rem;
+        }
+        
+        .read-more {
+            color: var(--tech-blue);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .read-more::after {
+            content: '→';
+            transition: transform 0.3s;
+        }
+        
+        .blog-card:hover .read-more::after {
+            transform: translateX(5px);
+        }
+        
+        .coming-soon {
+            opacity: 0.6;
+            border: 2px dashed rgba(59, 130, 246, 0.3);
+        }
+        
+        .coming-soon .blog-tag {
+            background: var(--gray);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">LINDA TALI</a>
+            <ul>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#research">Research</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Blog & Competitions</h1>
+        <p>Technical insights, competition learnings, and hands-on project case studies</p>
+    </section>
+
+    <div class="content">
+        <h2 class="section-title">Featured Posts</h2>
+        
+        <div class="blog-grid">
+            <!-- Deloitte Datathon -->
+            <a href="deloitte-datathon.html" class="blog-card">
+                <div class="blog-image">📊</div>
+                <div class="blog-content">
+                    <span class="blog-tag">Datathon</span>
+                    <h3>Deloitte Datathon 2025: Supply Chain Optimization</h3>
+                    <p>How our team tackled Deloitte's supply chain challenge using predictive analytics and data-driven decision making. Insights from a weekend of intense collaboration and problem-solving.</p>
+                    <div class="blog-meta">
+                        <span>📅 February 2025</span>
+                        <span>⏱️ 8 min read</span>
+                    </div>
+                    <span class="read-more">Read Full Post</span>
+                </div>
+            </a>
+
+            <!-- SmartShoe AI (now internal project page) -->
+            <a href="smartshoe-ai-coordination.html" class="blog-card">
+                <div class="blog-image">🤖</div>
+                <div class="blog-content">
+                    <span class="blog-tag">Agentic AI</span>
+                    <h3>SmartShoe AI Coordination Layer</h3>
+                    <p>Deep dive into architecting a multi-agent AI system for autonomous supply chain decision-making with 70% fewer plan changes and $600K cost avoidance.</p>
+                    <div class="blog-meta">
+                        <span>📅 December 2024</span>
+                        <span>⏱️ 12 min read</span>
+                    </div>
+                    <span class="read-more">Read Full Case Study</span>
+                </div>
+            </a>
+
+            <!-- Placeholder for future competitions -->
+            <div class="blog-card coming-soon">
+                <div class="blog-image" style="background: linear-gradient(135deg, var(--gray), var(--silver));">🏆</div>
+                <div class="blog-content">
+                    <span class="blog-tag">Coming Soon</span>
+                    <h3>Upcoming Competitions & Projects</h3>
+                    <p>More competition case studies, hackathon learnings, and technical project write-ups will be added as they're completed.</p>
+                    <div class="blog-meta">
+                        <span>📅 TBD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Case Studies & Technical Deep Dives</h2>
+        
+        <div class="blog-grid">
+            <!-- Link back to existing project pages -->
+            <a href="tiktok-live-project.html" class="blog-card">
+                <div class="blog-image">🎥</div>
+                <div class="blog-content">
+                    <span class="blog-tag">Global Expansion</span>
+                    <h3>TikTok Live: Scaling Livestream Commerce</h3>
+                    <p>How I managed international expansion of TikTok Live commerce from China to Western markets, achieving 35% revenue growth and 1,000+ concurrent viewers.</p>
+                    <span class="read-more">Read Case Study</span>
+                </div>
+            </a>
+
+            <a href="alpha3d-ai-platform.html" class="blog-card">
+                <div class="blog-image">🎨</div>
+                <div class="blog-content">
+                    <span class="blog-tag">AI Platform</span>
+                    <h3>Managing AI 3D Generation at Scale</h3>
+                    <p>Leading 45+ global team members and €500K+ portfolio for enterprise AI 3D modeling serving LVMH, Amazon, and Gucci.</p>
+                    <span class="read-more">Read Case Study</span>
+                </div>
+            </a>
+
+            <a href="worlds-away-festival.html" class="blog-card">
+                <div class="blog-image">🎪</div>
+                <div class="blog-content">
+                    <span class="blog-tag">AR/XR</span>
+                    <h3>World's Away Festival: Mixed Reality at Scale</h3>
+                    <p>Product managing immersive AR festival experience achieving 95% adoption among 7,400+ attendees and 60% brand visibility increase.</p>
+                    <span class="read-more">Read Case Study</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <footer style="background: var(--navy); color: white; text-align: center; padding: 3rem 2rem;">
+        <p style="color: var(--silver);">&copy; 2025 Linda Tali | Technical Program Manager</p>
+    </footer>
+</body>
+</html>

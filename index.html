@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Linda Tali - Technical Program Manager with 10+ years experience in AI/ML, XR (AR/VR), and digital transformation. Leading global teams and delivering enterprise solutions.">
+    <meta name="keywords" content="Linda Tali, Technical Program Manager, Product Manager, AI, Machine Learning, XR, Extended Reality, AR, VR, Digital Transformation, Drexel University">
+    <meta name="author" content="Linda Tali">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Linda Tali | Technical Program Manager">
+    <meta property="og:description" content="Technical Program Manager specializing in AI/ML, AR/VR/XR platforms, and data-driven program management. 10+ years leading global teams.">
+    <meta property="og:url" content="https://lindatali.com">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Linda Tali | Technical Program Manager">
+    <meta name="twitter:description" content="Technical Program Manager specializing in AI/ML, AR/VR/XR platforms, and data-driven program management.">
+    
+    <title>Linda Tali | Technical Program Manager - AI, XR, Digital Transformation</title>
+    
+    <!-- Google Analytics Placeholder - Replace with your tracking ID -->
+    <!-- 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    -->
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --navy: #0a1628;
+            --dark-navy: #050b14;
+            --tech-blue: #3b82f6;
+            --light-blue: #60a5fa;
+            --purple: #8b5cf6;
+            --silver: #e5e7eb;
+            --light-gray: #f3f4f6;
+            --white: #ffffff;
+            --gray: #6b7280;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--navy);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+        
+        /* Animated Tech Background */
+        .bg-decoration {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+            background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+        }
+        
+        .bg-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .tech-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.15;
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--tech-blue);
+            top: 10%;
+            right: 10%;
+        }
+        
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--purple);
+            bottom: 20%;
+            left: 15%;
+            animation-delay: -7s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, -50px); }
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1.5rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .logo-img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .logo::before {
+            content: none;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+        
+        nav a {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        
+        nav a:hover {
+            color: var(--tech-blue);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--tech-blue);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--navy);
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 8rem 2rem 6rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            min-height: 85vh;
+        }
+        
+        .hero-content h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            color: var(--navy);
+            letter-spacing: -2px;
+        }
+        
+        .hero-content .subtitle {
+            font-size: 1.4rem;
+            color: var(--tech-blue);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: -0.5px;
+        }
+        
+        .hero-content p {
+            font-size: 1.15rem;
+            color: var(--gray);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+        
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+            transition: all 0.4s;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 40px rgba(59, 130, 246, 0.2);
+            border-color: var(--tech-blue);
+        }
+        
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--tech-blue);
+            display: block;
+            letter-spacing: -1px;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1.2rem 3rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            display: inline-block;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: var(--tech-blue);
+            color: white;
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: var(--light-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--tech-blue);
+            border: 2px solid var(--tech-blue);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--tech-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-card {
+            background: linear-gradient(135deg, var(--navy), var(--dark-navy));
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 30px 80px rgba(10, 22, 40, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--tech-blue), var(--purple));
+        }
+        
+        .tech-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0.1;
+            background-image: repeating-linear-gradient(
+                45deg,
+                var(--tech-blue) 0px,
+                var(--tech-blue) 1px,
+                transparent 1px,
+                transparent 10px
+            );
+        }
+        
+        .hero-card-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-card-content h3 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+        
+        .hero-card-content p {
+            font-size: 1.1rem;
+            color: var(--silver);
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .section-header h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            color: var(--navy);
+            position: relative;
+            display: inline-block;
+            letter-spacing: -1px;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--tech-blue);
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 2.5rem auto 0;
+            line-height: 1.8;
+        }
+        
+        /* About Section */
+        #about {
+            background: var(--light-gray);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 5rem;
+        }
+        
+        .about-text h3 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 800;
+            color: var(--navy);
+            letter-spacing: -0.5px;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.8rem;
+            line-height: 1.9;
+            color: var(--gray);
+            font-size: 1.05rem;
+        }
+        
+        .highlight-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin: 2.5rem 0;
+            border-left: 4px solid var(--tech-blue);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+        }
+        
+        .highlight-box h4 {
+            color: var(--tech-blue);
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        
+        .skill-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            box-shadow: 0 2px 10px rgba(59, 130, 246, 0.05);
+        }
+        
+        .skill-item:hover {
+            background: var(--tech-blue);
+            color: white;
+            transform: translateX(8px);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.2);
+            border-color: var(--tech-blue);
+        }
+        
+        .project-tag {
+            display: inline-block;
+            background: var(--tech-blue);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .project-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            color: var(--navy);
+            letter-spacing: -0.5px;
+        }
+        
+        .project-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .read-more {
+            color: var(--tech-blue);
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .read-more::after {
+            content: '→';
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover .read-more::after {
+            transform: translateX(5px);
+        }
+        
+        /* Contact Section */
+        #contact {
+            background: var(--light-gray);
+            text-align: center;
+        }
+        
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 3rem 0;
+        }
+        
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 2.5rem;
+            background: white;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--navy);
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+            transition: all 0.3s;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+        
+        .contact-link:hover {
+            background: var(--tech-blue);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.3);
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+        
+        footer p {
+            color: var(--silver);
+        }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 4rem 2rem 3rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-content .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .stats-row {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+            
+            .section-header p {
+                font-size: 1rem;
+            }
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-decoration">
+        <div class="bg-grid"></div>
+        <div class="tech-orb orb-1"></div>
+        <div class="tech-orb orb-2"></div>
+    </div>
+
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="images/logo.png" alt="Linda Tali" class="logo-img">
+                LINDA TALI
+            </a>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://www.linkedin.com/in/linda-tali/" target="_blank">LinkedIn</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Menu">☰</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Linda Tali</h1>
+            <div class="subtitle">Technical Program Manager</div>
+            <p>Driving innovation at the intersection of AI, XR, and digital transformation. 10+ years orchestrating complex cross-functional programs and leading global teams across emerging technologies.</p>
+            
+            <div class="stats-row">
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">45+</span>
+                    <span class="stat-label">Team Members Led</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">€500K+</span>
+                    <span class="stat-label">Portfolio Value</span>
+                </div>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="https://www.linkedin.com/in/linda-tali/" target="_blank" class="btn btn-secondary">LinkedIn</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-card">
+                <div class="tech-lines"></div>
+                <div class="hero-card-content">
+                    <img src="images/professional-headshot.jpg" 
+                         alt="Linda Tali - Technical Program Manager" 
+                         style="max-width: 350px; width: 100%; height: auto; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.2);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="section-header">
+            <h2>About</h2>
+            <p>Strategic technical leader bridging innovation and execution</p>
+        </div>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Building Tomorrow's Tech</h3>
+                <p>Senior Technical Program Manager with a proven track record of transforming ambitious visions into reality. Currently pursuing MS in Business Information Technology at Drexel University, I combine deep technical understanding with strategic business acumen.</p>
+                
+                <p>My career spans global teams across China, Estonia, and the US—from TikTok Live's international expansion to founding-team product development at AI startups. I specialize in AI/ML platforms, AR/VR/XR experiences, and data-driven program management.</p>
+                
+                <div class="highlight-box">
+                    <h4>Core Strengths</h4>
+                    <p>📊 Data-driven decision making (35% sales growth, 45% conversion lift)<br><br>
+                    🤝 Stakeholder management across engineering and executive leadership<br><br>
+                    🌍 Global team coordination across multiple time zones<br><br>
+                    💡 0→1 product development with focus on quality and scalability</p>
+                </div>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-item">Program Strategy & Roadmaps</div>
+                <div class="skill-item">Cross-functional Leadership</div>
+                <div class="skill-item">AI/ML Product Development</div>
+                <div class="skill-item">XR Platforms (AR/VR/MR)</div>
+                <div class="skill-item">Stakeholder Management</div>
+                <div class="skill-item">Agile/Scrum Methodologies</div>
+                <div class="skill-item">Risk & Mitigation Planning</div>
+                <div class="skill-item">Data Analytics & KPIs</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="section-header">
+            <h2>Featured Projects</h2>
+            <p>Delivering measurable business impact through strategic program leadership</p>
+        </div>
+        
+        <div class="projects-grid">
+            <a href="smartshoe-ai-coordination.html" class="project-card">
+                <span class="project-tag">Agentic AI</span>
+                <h3>SmartShoe AI Coordination Layer</h3>
+                <p>Architected multi-agent AI system for supply chain decision-making. Reduced plan changes by 70%, cut decision time from 3 days to 30 minutes, and modeled $600K cost avoidance. Graduate capstone demonstrating AI coordination at scale.</p>
+                <span class="read-more">View Full Case Study</span>
+            </a>
+
+            <a href="https://lindatali.blog/2024/12/22/how-i-built-an-agentic-ai-coordination-layer-that-turns-supply-chain-chaos-into-data-driven-decisions/" target="_blank" class="project-card">
+                <span class="project-tag">Agentic AI</span>
+                <h3>SmartShoe AI Coordination Layer</h3>
+                <p>Led development of agentic AI workflow for supply-chain decision-making with multi-step approvals and automated risk assessment. Architected multi-agent autonomous system.</p>
+                <span class="read-more">Read Full Blog Post</span>
+            </a>
+
+            <a href="https://augmento.com/projects/worlds-away" target="_blank" class="project-card">
+                <span class="project-tag">AR/XR</span>
+                <h3>World's Away Festival</h3>
+                <p>Product Manager for immersive AR experience as Title Tech Sponsor. Transformed Monterey County Fairgrounds into interactive Mixed Reality playground, achieving 95% adoption with 7,400+ attendees.</p>
+                <span class="read-more">View Project</span>
+            </a>
+
+            <a href="https://augmento.com/projects/art-spaces" target="_blank" class="project-card">
+                <span class="project-tag">Product Management</span>
+                <h3>ArtSpaces Platform</h3>
+                <p>Senior PM on founding team managing 0→1 technical roadmaps for AR/AI experiences. Coordinated cross-functional teams across Europe, US, and Bali to deliver immersive art platform.</p>
+                <span class="read-more">View Project</span>
+            </a>
+
+            <a href="alpha3d-ai-platform.html" class="project-card">
+                <span class="project-tag">AI Platform</span>
+                <h3>Alpha3D AI 3D Generator</h3>
+                <p>Technical PM leading AI 3D generator across 45+ team members for enterprise clients including LVMH, Amazon, and Gucci. Achieved 98% on-time delivery with 60% margins on €500K+ portfolio.</p>
+                <span class="read-more">View Full Case Study</span>
+            </a>
+
+            <a href="tiktok-live-project.html" class="project-card">
+                <span class="project-tag">Global Expansion</span>
+                <h3>TikTok Live International</h3>
+                <p>Program Manager for TikTok Live expansion across USA/Europe markets (UK→USA→Germany/Ireland). Managed 5 daily livestreams at 1,000+ concurrent viewers. Achieved 35% revenue growth.</p>
+                <span class="read-more">Read Full Case Study</span>
+            </a>
+
+            <a href="https://augmento.com/projects/miami" target="_blank" class="project-card">
+                <span class="project-tag">AR Experience</span>
+                <h3>Miami Art Week</h3>
+                <p>Delivered immersive AR activations for Miami Art Week, bringing digital art to life through cutting-edge augmented reality technology.</p>
+                <span class="read-more">View Project</span>
+            </a>
+        </div>
+    </section>
+
+    <section id="research">
+        <div class="section-header">
+            <h2>Academic Research</h2>
+            <p>Strategic insights from MS in Business Information Technology at Drexel University</p>
+        </div>
+        
+        <div class="projects-grid">
+            <a href="traderjoes-paper.html" class="project-card">
+                <span class="project-tag">Digital Transformation</span>
+                <h3>Trader Joe's Digital Feedback Roadmap</h3>
+                <p>Comprehensive 12-month roadmap for implementing scalable digital feedback ecosystem. Features phased implementation, risk management, and change leadership strategies preserving human-centered culture.</p>
+                <span class="read-more">Read Full Paper</span>
+            </a>
+            
+            <div class="project-card" style="opacity: 0.6; border: 2px dashed rgba(59, 130, 246, 0.3); cursor: default;">
+                <span class="project-tag" style="background: var(--gray);">Coming Soon</span>
+                <h3>Additional Research</h3>
+                <p>More academic work from Drexel University's MS Business Information Technology program will be added as completed.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-header">
+            <h2>Let's Connect</h2>
+            <p>Open to Technical Program Manager and Product Manager opportunities in AI/XR/Tech</p>
+        </div>
+        
+        <div class="contact-methods">
+            <a href="/cdn-cgi/l/email-protection#7d111413191c53091c11143d1a101c1411531e1210" class="contact-link">
+                <span class="contact-icon">📧</span>
+                <span><span class="__cf_email__" data-cfemail="d7bbbeb9b3b6f9a3b6bbbe97b0bab6bebbf9b4b8ba">[email&#160;protected]</span></span>
+            </a>
+            
+            <a href="https://www.linkedin.com/in/linda-tali/" target="_blank" class="contact-link">
+                <span class="contact-icon">💼</span>
+                <span>LinkedIn Profile</span>
+            </a>
+        </div>
+        
+        <div style="margin-top: 3rem;">
+            <a href="/cdn-cgi/l/email-protection#afc3c6c1cbce81dbcec3c6efc8c2cec6c381ccc0c290dcdacdc5caccdb92e0dfdfc0dddbdac1c6dbd68a9d9fc9ddc0c28a9d9fffc0dddbc9c0c3c6c0" class="btn btn-primary">Send Message</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Linda Tali | Technical Program Manager | AI · XR · Innovation</p>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // Mobile menu toggle (basic implementation)
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+            const navList = document.querySelector('nav ul');
+            if (navList) {
+                navList.style.display = navList.style.display === 'flex' ? 'none' : 'flex';
+                navList.style.flexDirection = 'column';
+                navList.style.position = 'absolute';
+                navList.style.

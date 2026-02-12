@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trader Joe's Digital Feedback Roadmap | Linda Tali</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --navy: #0a1628;
+            --tech-blue: #3b82f6;
+            --light-blue: #60a5fa;
+            --purple: #8b5cf6;
+            --silver: #e5e7eb;
+            --light-gray: #f3f4f6;
+            --white: #ffffff;
+            --gray: #6b7280;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: var(--navy);
+            background: var(--white);
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1.5rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            text-decoration: none;
+        }
+        
+        .back-link {
+            color: var(--tech-blue);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Paper Hero */
+        .paper-hero {
+            margin-top: 80px;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--navy), #1a2742);
+            color: white;
+        }
+        
+        .paper-hero .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .paper-tag {
+            display: inline-block;
+            background: var(--tech-blue);
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+        
+        .paper-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .paper-authors {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+        
+        .paper-meta {
+            font-size: 1rem;
+            opacity: 0.8;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        /* Abstract Box */
+        .abstract-box {
+            background: var(--light-gray);
+            padding: 3rem;
+            border-radius: 16px;
+            margin: -3rem auto 4rem;
+            max-width: 900px;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .abstract-box h2 {
+            color: var(--tech-blue);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Content */
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 2rem 4rem;
+        }
+        
+        .content h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 4rem 0 1.5rem;
+            color: var(--navy);
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--tech-blue);
+        }
+        
+        .content h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1rem;
+            color: var(--tech-blue);
+        }
+        
+        .content h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 2rem 0 1rem;
+            color: var(--navy);
+        }
+        
+        .content p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+        
+        .content ul, .content ol {
+            margin: 1.5rem 0 1.5rem 2rem;
+        }
+        
+        .content li {
+            margin-bottom: 0.8rem;
+            line-height: 1.8;
+            color: var(--gray);
+        }
+        
+        .highlight-section {
+            background: linear-gradient(135deg, #eff6ff, #f0f9ff);
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin: 2.5rem 0;
+            border-left: 4px solid var(--tech-blue);
+        }
+        
+        .key-takeaway {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--purple);
+        }
+        
+        .key-takeaway h4 {
+            color: var(--purple);
+            margin-top: 0;
+        }
+        
+        blockquote {
+            border-left: 4px solid var(--tech-blue);
+            padding-left: 2rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: var(--gray);
+        }
+        
+        .image-placeholder {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            margin: 3rem 0;
+            border: 2px dashed rgba(59, 130, 246, 0.3);
+        }
+        
+        .references {
+            background: var(--light-gray);
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-top: 4rem;
+        }
+        
+        .references h2 {
+            border-bottom: none;
+            margin-top: 0;
+        }
+        
+        .references p {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        @media (max-width: 768px) {
+            .paper-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .content h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">LINDA TALI</a>
+            <a href="index.html#research" class="back-link">← Back to Research</a>
+        </div>
+    </nav>
+
+    <section class="paper-hero">
+        <div class="container">
+            <span class="paper-tag">Academic Research</span>
+            <h1>Trader Joe's Digital Feedback Roadmap</h1>
+            <p class="paper-authors">Linda Tali, Hilena Shekour, Ian Adjangba, Prosper Bowman</p>
+            <p class="paper-meta">Drexel University | CT 500: Introduction to the Digital Environment | Dr. Ram Arthanari | November 23, 2025</p>
+        </div>
+    </section>
+
+    <div class="abstract-box">
+        <h2>Abstract</h2>
+        <p>Trader Joe's stands at a critical crossroad. The company's distinctive competitive advantage—its authentic human-centered culture, engaging crew, and personal customer relationships—remains its most valuable asset. Yet as competitors embrace data-driven engagement and digital transformation accelerates across retail, Trader Joe's must modernize its feedback mechanisms without sacrificing the warmth that defines its brand.</p>
+        <p>This paper presents a strategic roadmap for implementing a scalable digital feedback ecosystem. Rather than replacing human connection, this initiative amplifies it while providing teams with real-time data to listen, respond, and adapt with greater agility. Through phased implementation, deliberate change management, rigorous risk oversight, and authentic crew engagement, Trader Joe's can thrive in the digital era while remaining true to its foundational values.</p>
+    </div>
+
+    <div class="content">
+        <h2>Introduction and Strategic Context</h2>
+        <p>Trader Joe's is celebrated for its unique private-label products, lively in-store culture, and unwavering customer-first philosophy. The company stands out through its "human touch", engaging crew members, a sense of adventure in curation, and genuine care embedded in daily operations. This distinctive culture has sustained loyalty for decades, even as competitors pivot toward digital transformation.</p>
+
+        <p>However, the landscape is shifting. Modern retailers are leveraging data-driven engagement, predictive analytics, and omnichannel feedback systems to deepen customer insights and accelerate response times. Historically, Trader Joe's collected feedback through informal, in-person conversations. While this approach captured authentic voices, it introduced significant limitations: feedback was unreliable, difficult to quantify, often delayed, and inconsistently tracked across locations.</p>
+
+        <div class="key-takeaway">
+            <h4>💡 Core Principle</h4>
+            <p>Digital feedback amplifies human capability to listen. When store managers have data showing checkout delays on specific shifts, they address staffing with precision. When crew suggestions surface across multiple locations, leaders recognize patterns worth scaling.</p>
+        </div>
+
+        <p>A digital feedback ecosystem addresses these gaps without displacing human interaction. In-store kiosks and mobile surveys capture feedback at the moment of experience. Real-time data aggregates into a secure dashboard accessible to store managers and leadership. Research demonstrates measurable impact: in-store kiosks increase actionable feedback volume by up to 30% compared to traditional methods, accelerate issue identification, and enable faster corrections.</p>
+
+        <p>Critically, this is not automation replacing conversation. Digital feedback amplifies the human capability to listen. When store managers have data showing checkout delays on specific shifts, they address staffing with precision. When crew suggestions surface across multiple locations, leaders recognize patterns worth scaling. When customers see their feedback lead to visible improvements within weeks, trust deepens.</p>
+
+        <h2>Project Vision and Implementation Structure</h2>
+        
+        <p>The initiative pursues three interconnected outcomes:</p>
+        <ol>
+            <li><strong>Operational Excellence:</strong> Enable teams to identify and resolve challenges faster through data-driven responsiveness</li>
+            <li><strong>Cultural Reinforcement:</strong> Demonstrate that technology strengthens rather than diminishes Trader Joe's human-centered foundation</li>
+            <li><strong>Scalable Innovation Platform:</strong> Establish infrastructure positioning Trader Joe's to innovate responsibly</li>
+        </ol>
+
+        <h3>Project Team Roles</h3>
+        <p>Success requires integrating both technical expertise and deep business acumen. The project team structure includes:</p>
+
+        <div class="highlight-section">
+            <h4>Core Team Structure</h4>
+            <ul>
+                <li><strong>Project Sponsor (CIO or VP Operations):</strong> Executive champion ensuring alignment and removing barriers</li>
+                <li><strong>Product Owner (Store Operations Director):</strong> Bridges operations and technology, managing requirements and pilot store selection</li>
+                <li><strong>IT Leads:</strong> Hardware procurement, network deployment, secure dashboard setup, vendor management</li>
+                <li><strong>Pilot Store Managers and Crew:</strong> Co-designers testing in real conditions and providing early feedback</li>
+                <li><strong>HR/Training Coordinator:</strong> Develops curriculum and manages education cascades</li>
+                <li><strong>Data Analytics Manager:</strong> Monitors KPIs and translates data into actionable insights</li>
+                <li><strong>Vendor Partners:</strong> Supply and configure hardware and software</li>
+                <li><strong>Consulting Support:</strong> Facilitates change management and best practices</li>
+            </ul>
+        </div>
+
+        <p>Weekly all-hands check-ins during pilot phase create shared visibility. Dedicated Slack channels enable rapid issue escalation. Monthly leadership reviews assess progress and make iterative corrections.</p>
+
+        <div class="image-placeholder">
+            <p>📊 Organizational Chart: Project Team Structure and Reporting Lines</p>
+        </div>
+
+        <h2>Phased Implementation Timeline (12-Month Roadmap)</h2>
+
+        <h3>Phase 1: Pilot Launch (Months 1-3)</h3>
+        <p>Eight to twelve pilot stores are carefully selected for operational readiness and crew enthusiasm. These stores receive hardware installation (touch-screen kiosks at checkout, tablets for manager access), Wi-Fi network upgrades, secure cloud dashboard provisioning with role-based access, and comprehensive crew training.</p>
+
+        <p>Kiosk prompts are simple: "What was your experience today?" with quick-tap response options (Excellent / Good / Needs Improvement) plus optional text.</p>
+
+        <div class="key-takeaway">
+            <h4>🎯 Decision Milestone: Week 8 (Month 2)</h4>
+            <p><strong>Go/No-Go criteria include:</strong></p>
+            <ol>
+                <li>Successful hardware deployment without operational disruption</li>
+                <li>Crew comfort and confidence at 70%+ measured through pulse surveys</li>
+                <li>Initial data collection showing 200+ weekly feedback submissions across pilot stores</li>
+                <li>No critical technology failures or security issues</li>
+            </ol>
+            <p>If criteria are met, Phase 2 proceeds with confidence. If gaps emerge, the team isolates issues, implements corrections, and reassesses.</p>
+        </div>
+
+        <h3>Phase 2: Evaluation and Refinement (Months 3-6)</h3>
+        <p>With pilot data accumulating, focus shifts to analysis and optimization. The data analytics team examines patterns: Which feedback types appear most frequently? What is average time from identification to store-level resolution? Are crew members seeing their suggestions implemented? Based on insights, refinements are made to kiosk prompts, dashboard organization, and training scripts.</p>
+
+        <div class="highlight-section">
+            <h4>Critical Go/No-Go Decision: Month 6</h4>
+            <p>The rollout decision assesses:</p>
+            <ol>
+                <li>Did pilot stores achieve 20%+ customer participation?</li>
+                <li>Is feedback response time improving?</li>
+                <li>Are pilot crews showing maintained or improved morale?</li>
+                <li>Have at least three significant operational improvements emerged?</li>
+                <li>Is the system technically stable?</li>
+            </ol>
+            <p>This decision is rigorous. If the pilot demonstrates clear value and readiness, national rollout proceeds. If concerns persist, the team recalibrates.</p>
+        </div>
+
+        <h3>Phase 3: Scale and Expand (Months 6-9)</h3>
+        <p>Rollout accelerates to additional stores in cohorts. Training scales through train-the-trainer models. The "CrewVoice Digest" (weekly email celebrating wins) circulates storewide. Monthly town-halls update all stores on status and early wins. Integration with additional channels, social media sentiment analysis, provides richer context.</p>
+
+        <h3>Phase 4: Institutionalize (Months 9-12)</h3>
+        <p>The system becomes business-as-usual. A comprehensive, real-time dashboard accessible to leadership tracks performance across all stores. Continuous improvement becomes embedded: stores hold regular "listening sessions" where crew and managers review feedback trends together, celebrate wins, and brainstorm solutions.</p>
+
+        <div class="image-placeholder">
+            <p>📈 Timeline Chart: 12-Month Phased Implementation with Key Milestones</p>
+        </div>
+
+        <h2>Technical and Non-Technical Task Integration</h2>
+        <p>The project succeeds by treating technical and non-technical work as equally critical.</p>
+
+        <h3>Technical Tasks:</h3>
+        <ul>
+            <li>Kiosk procurement and configuration</li>
+            <li>Wi-Fi network deployment</li>
+            <li>Secure cloud dashboard with encryption and role-based access</li>
+            <li>One-page architecture diagram</li>
+            <li>API setup for future integrations</li>
+            <li>Cybersecurity hardening</li>
+        </ul>
+
+        <h3>Non-Technical Tasks:</h3>
+        <ul>
+            <li>Crew training curriculum</li>
+            <li>Feedback prompt script design (precise wording reflecting Trader Joe's voice)</li>
+            <li>Store manager coaching on "closing the loop" (follow-up with customers showing their voice was heard)</li>
+            <li>"CrewVoice Digest" newsletter celebrating wins</li>
+            <li>Vendor workshops</li>
+            <li>Change management communications</li>
+            <li>LMS documentation</li>
+        </ul>
+
+        <div class="key-takeaway">
+            <h4>🔑 Critical Synergy</h4>
+            <p>Technical deployment without thoughtful change management leads to underutilization. Exceptional communication without solid infrastructure frustrates users. The roadmap succeeds by ensuring technology enables listening, while people and processes ensure listening yields meaningful action.</p>
+        </div>
+
+        <div class="image-placeholder">
+            <p>📊 Task Breakdown Table: Technical vs. Non-Technical Responsibilities</p>
+        </div>
+
+        <h2>Risk Management and Mitigation</h2>
+
+        <h3>High-Priority Risks</h3>
+
+        <h4>Crew Adoption Resistance</h4>
+        <p><strong>Risk:</strong> Crews may see the system as surveillance or added workload.</p>
+        <p><strong>Mitigation:</strong> Transparent communication from leadership explaining the 'why'; inclusive design where crews participate in pilot testing; visible action on crew suggestions within 30 days creating early wins; recognition programs; regular check-ins measuring sentiment and addressing concerns immediately.</p>
+
+        <h4>Technology Implementation Delays</h4>
+        <p><strong>Risk:</strong> Hardware procurement or deployment complications postpone launch.</p>
+        <p><strong>Mitigation:</strong> Vendor contracts include performance penalties; redundancy in supply chain with two hardware vendors; parallel testing of Wi-Fi before store installation; cloud infrastructure provisioned early with load testing; weekly vendor check-ins.</p>
+
+        <h4>Poor Customer Engagement</h4>
+        <p><strong>Risk:</strong> Customers ignore kiosks, limiting feedback volume.</p>
+        <p><strong>Mitigation:</strong> Minimal, non-intrusive kiosk design at natural decision points; simple, one-tap responses; crew championing where trained staff invite customers to share; early promotions building awareness; realistic engagement targets (15-20%).</p>
+
+        <h3>Moderate-Priority Risks</h3>
+
+        <h4>Data Quality Issues</h4>
+        <p><strong>Risk:</strong> Dashboard overwhelms managers with data noise.</p>
+        <p><strong>Mitigation:</strong> Executive dashboard development with data scientists ensuring displayed metrics are actionable; regular feedback review cycles assessing whether data prompts meaningful action; quarterly refinements.</p>
+
+        <h4>Insufficient Change Management</h4>
+        <p><strong>Risk:</strong> Leadership and crew lack emotional buy-in.</p>
+        <p><strong>Mitigation:</strong> Dedicated change management consultant embedded throughout pilot, facilitating sessions, addressing concerns, building peer champions.</p>
+
+        <h4>Vendor or Security Issues</h4>
+        <p><strong>Risk:</strong> Hardware underperformance or cloud vulnerabilities.</p>
+        <p><strong>Mitigation:</strong> Rigorous vendor selection with reference checks; third-party security audit before go-live; cyber insurance; documented incident response plan.</p>
+
+        <div class="highlight-section">
+            <h4>Governance</h4>
+            <p>Weekly project team meetings review risk status using a shared tracker. Any risk moving from "Yellow" to "Red" triggers immediate escalation to the Project Sponsor.</p>
+        </div>
+
+        <div class="image-placeholder">
+            <p>📊 Risk Matrix: Impact vs. Probability Heat Map</p>
+        </div>
+
+        <h2>Change Management and Communication Strategy</h2>
+        <p>Implementing a new system in an organization with deep cultural identity requires authentic, multifaceted communication emphasizing dialogue over top-down mandates.</p>
+
+        <h3>Communication Philosophy</h3>
+        <p>Trader Joe's values authenticity. All communications reflect actual values: <em>We're listening because your voice matters. We're investing in technology to amplify what you say, not replace conversations.</em></p>
+
+        <h3>Communication Channels:</h3>
+        <ul>
+            <li><strong>Monthly Town-Halls:</strong> Leadership shares progress, celebrates wins, addresses concerns, invites live Q&A (recordings available for staff unable to attend)</li>
+            <li><strong>Weekly "CrewVoice Digest":</strong> Friday email (1-2 pages) highlights compelling wins: "A crew member noticed customers struggling to find organic cereal. She suggested repositioning it. The regional manager approved the change. Three weeks later, sales increased 22% in that store."</li>
+            <li><strong>Quarterly Business Review Segment:</strong> Celebrate crew-driven improvements emerging from feedback</li>
+            <li><strong>In-Store Posters:</strong> Simple messaging: "Your feedback shapes Trader Joe's"</li>
+            <li><strong>Training Sessions:</strong> 90-minute in-person training covering system mechanics, encouraging participation, interpreting feedback, and closing the loop</li>
+            <li><strong>One-on-One Check-Ins:</strong> 15-20 minute conversations with frontline staff asking honest questions: "What's working? What's confusing? What would make this easier?"</li>
+        </ul>
+
+        <h3>Addressing Common Concerns</h3>
+        <div class="highlight-section">
+            <p><strong>Q: "Is this surveillance?"</strong><br>
+            A: No. The dashboard shows only aggregated feedback patterns, not individual identification.</p>
+            
+            <p><strong>Q: "Will feedback be used against us?"</strong><br>
+            A: Feedback improves operations, not assigns blame. A crew member suggesting "We need additional checkout lanes" is being listened to, not criticized.</p>
+        </div>
+
+        <h2>Success Metrics and Measurement Framework</h2>
+
+        <h3>Quantitative Metrics</h3>
+        <ul>
+            <li><strong>Customer Engagement Rate:</strong> 15% by Month 3, 20%+ by Month 6 (measured daily via kiosk systems)</li>
+            <li><strong>Feedback Volume and Quality:</strong> 200+ submissions/week by Month 2 across pilot stores; 30%+ improvement vs. baseline</li>
+            <li><strong>Time-to-Resolution:</strong> Reduce from 14-21 days (historical) to 5-7 days (digital-enabled)</li>
+            <li><strong>Net Promoter Score Improvement:</strong> Increase by 5-10 points within 12 months (quarterly surveys)</li>
+            <li><strong>Crew Suggestion Implementation Rate:</strong> 60%+ of crew suggestions receive action or explicit follow-up</li>
+            <li><strong>Complaint Reduction:</strong> 20% reduction by Month 6, 30% by Month 12</li>
+        </ul>
+
+        <h3>Qualitative Metrics</h3>
+        <ul>
+            <li><strong>Crew Adoption and Comfort:</strong> Pulse surveys monthly; target 70%+ "Agree" to "I understand the system" by Month 2, 80%+ by Month 6</li>
+            <li><strong>Sentiment Analysis:</strong> 75%+ positive sentiment mentions related to "Trader Joe's listens"</li>
+            <li><strong>Crew Retention Stability:</strong> Maintain or improve attrition rates in pilot stores</li>
+        </ul>
+
+        <div class="key-takeaway">
+            <h4>📊 Governance</h4>
+            <p>Monthly metrics review (first Thursday) gathers project team and stakeholders. Red-flagged metrics trigger root-cause analysis. Green-flagged metrics are celebrated and practices documented for replication.</p>
+        </div>
+
+        <div class="image-placeholder">
+            <p>📊 KPI Dashboard Design: Sample Executive View</p>
+        </div>
+
+        <h2>Conclusion: Technology as Amplification</h2>
+        <p>Trader Joe's distinctive competitive advantage is not its assortment of organic kale or private-label granola. It is the authentic human connection between the company and its customers, between store managers and crew members, and between the broader Trader Joe's brand and the communities it serves. In an era of increasing automation and digital alienation, this human authenticity is both rare and invaluable.</p>
+
+        <p>The digital feedback initiative proposed here is fundamentally about preserving and reinforcing that authenticity while modernizing the operational systems that support it. Technology is not intended to automate but to amplify, enabling Trader Joe's people to listen more effectively, understand customer and crew voices more deeply, and respond with greater agility and precision.</p>
+
+        <p>From kiosk interface design (simple and non-intrusive) to dashboard layout (actionable, not overwhelming) to change communications (transparent and authentic) to success metrics (including qualitative and quantitative measures), every decision reflects a core principle: <strong>technology should serve people, not the other way around.</strong></p>
+
+        <blockquote>
+            When a customer sees her suggestion about product placement lead to a visible store improvement within weeks, the digital system fades into invisibility—but what she remembers is that Trader Joe's genuinely listened.
+        </blockquote>
+
+        <p>The phased implementation roadmap, with its early two-month decision milestone and rigorous six-month go/no-go review, enables learning, adaptation, and momentum building. These checkpoints allow Trader Joe's to course-correct quickly and validate value before scaling.</p>
+
+        <p>Trader Joe's stands at a pivotal inflection point. The choice to embrace digital transformation thoughtfully, anchored to human-centered design, risk management, authentic change leadership, and measurable success, will determine its ability to thrive in a rapidly evolving retail world. This roadmap is an investment in a future where technology augments warm human connection, ensuring the distinctive Trader Joe's experience grows richer, deeper, and more meaningful for years to come.</p>
+
+        <div class="references">
+            <h2>References</h2>
+            <p>Naoum, K. d. (2025, 08 11). Trader Joe's Supply Chain Proves That Less Is More. Retrieved from Thomas: https://www.thomasnet.com/insights/trader-joes-supply-chain/</p>
+            
+            <p>Stone, N. (2022, 10 21). Examining Kiosk Surveys and When to Use Them. Retrieved from SmartSurvey: https://www.smartsurvey.com/blog/examining-kiosk-surveys-and-when-to-use-them</p>
+            
+            <p>Touchwork.A. (2025). Fusing real-time feedback & operational audit data to enhance CX. Retrieved from Touchwork: https://touchwork.com/</p>
+            
+            <p>Touchwork.B. (2025). Touch and Tell, Kiosk-based feedback. Retrieved from Touchwork: https://touchwork.com/product/touchandtell/</p>
+        </div>
+
+        <div style="text-align: center; margin: 4rem 0;">
+            <a href="index.html#research" style="display: inline-block; padding: 1.2rem 3rem; background: var(--tech-blue); color: white; text-decoration: none; border-radius: 12px; font-weight: 700;">← Back to Research</a>
+        </div>
+    </div>
+
+    <footer style="background: var(--navy); color: white; text-align: center; padding: 3rem 2rem;">
+        <p style="color: var(--silver);">&copy; 2025 Linda Tali | Technical Program Manager</p>
+    </footer>
+</body>
+</html>

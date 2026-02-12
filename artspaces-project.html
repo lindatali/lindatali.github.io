@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtSpaces Platform | Linda Tali</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --navy: #0a1628;
+            --tech-blue: #3b82f6;
+            --light-blue: #60a5fa;
+            --purple: #8b5cf6;
+            --silver: #e5e7eb;
+            --light-gray: #f3f4f6;
+            --white: #ffffff;
+            --gray: #6b7280;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--navy);
+            background: var(--white);
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1.5rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            text-decoration: none;
+        }
+        
+        .back-link {
+            color: var(--tech-blue);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .project-hero {
+            margin-top: 80px;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--navy), #1a2742);
+            color: white;
+        }
+        
+        .project-hero .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .project-tag {
+            display: inline-block;
+            background: var(--tech-blue);
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2rem;
+        }
+        
+        .project-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+        
+        .project-meta {
+            display: flex;
+            gap: 3rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .meta-label {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 3rem 0 1.5rem;
+            color: var(--navy);
+            letter-spacing: -0.5px;
+        }
+        
+        .content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1rem;
+            color: var(--navy);
+        }
+        
+        .content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+        
+        .highlight-box {
+            background: var(--light-gray);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin: 2.5rem 0;
+            border-left: 4px solid var(--tech-blue);
+        }
+        
+        .highlight-box h4 {
+            color: var(--tech-blue);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--tech-blue);
+            display: block;
+            letter-spacing: -1px;
+        }
+        
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--gray);
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .image-placeholder {
+            background: linear-gradient(135deg, var(--light-gray), var(--silver));
+            border-radius: 16px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 3rem 0;
+            border: 2px dashed rgba(59, 130, 246, 0.3);
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        ul li {
+            padding: 0.8rem 0 0.8rem 2rem;
+            position: relative;
+            font-size: 1.05rem;
+            color: var(--gray);
+        }
+        
+        ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--tech-blue);
+            font-weight: bold;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--tech-blue);
+        }
+        
+        .feature-card h4 {
+            color: var(--tech-blue);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .tool-tag {
+            background: var(--light-gray);
+            color: var(--navy);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .project-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .stats-grid, .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">LINDA TALI</a>
+            <a href="index.html#projects" class="back-link">← Back to Projects</a>
+        </div>
+    </nav>
+
+    <section class="project-hero">
+        <div class="container">
+            <span class="project-tag">Product Management · 0→1</span>
+            <h1>ArtSpaces Platform</h1>
+            <p style="font-size: 1.3rem; opacity: 0.9; line-height: 1.8;">Leading 0→1 product development for a web-based AR platform that democratizes access to immersive art experiences. Built CSV bulk upload functionality, custom CRM layer, and secured enterprise subscriptions while coordinating globally distributed teams.</p>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Senior Project & Product Manager</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Duration</span>
+                    <span class="meta-value">Mar 2024 – Dec 2025</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Company</span>
+                    <span class="meta-value">Augmento (Founding Team)</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Team</span>
+                    <span class="meta-value">15-20 globally distributed</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="content">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">20K+</span>
+                <span class="stat-label">Total Users</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">3</span>
+                <span class="stat-label">Enterprise Clients</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">75%</span>
+                <span class="stat-label">Cycle Time Reduction</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">60%</span>
+                <span class="stat-label">Visibility Increase</span>
+            </div>
+        </div>
+
+        <h2>Project Overview</h2>
+        <p>ArtSpaces represented Augmento's flagship product—a web-based AR platform designed to bring immersive art experiences to galleries, collectors, and artists worldwide. As a founding team member and Senior PM, I was brought in to transform the co-founders' vision into a scalable, commercially viable product.</p>
+
+        <p>This wasn't just project management—it was true 0→1 product development. I worked shoulder-to-shoulder with the Creative Director (co-founder) to define user experience, establish pricing strategy, build core functionality, and onboard our first paying customers. Every decision—from UX flows to subscription tiers to API integrations—shaped the foundation of what would become Augmento's primary revenue driver.</p>
+
+        <div class="image-placeholder">
+            <p>📸 Image: ArtSpaces platform dashboard showing AR content management interface</p>
+        </div>
+
+        <h2>My Role & Responsibilities</h2>
+
+        <h3>Product Ownership & Strategy</h3>
+        <p>I owned the product roadmap and strategy working directly with the CEO and Creative Director:</p>
+        <ul>
+            <li><strong>User Experience Definition:</strong> Collaborated with Creative Director to define how customers would interact with the platform—upload flows, gallery management, AR preview, embed codes</li>
+            <li><strong>Pricing Strategy:</strong> Conducted competitive research on AR platform competitors; designed tiered subscription model (Spark → Inferno → Enterprise) with strategic pricing</li>
+            <li><strong>Feature Prioritization:</strong> Balanced customer requests, technical feasibility, and business impact to define quarterly roadmaps</li>
+            <li><strong>Product-Market Fit:</strong> Ran discovery sessions with early users to validate features and identify pain points</li>
+        </ul>
+
+        <h3>Cross-Functional Leadership</h3>
+        <p>Managed a globally distributed team spanning multiple time zones and disciplines:</p>
+        <ul>
+            <li><strong>Team Coordination:</strong> Led 15-20 people including internal team + vendors across Europe, South America, Bali, and US</li>
+            <li><strong>Weekly Syncs:</strong> Ran engineering/design meetings to review progress, unblock issues, and align on priorities</li>
+            <li><strong>Time Zone Management:</strong> Coordinated across 12+ hour differences using async tools (Slack, Otter AI, ClickUp) to keep everyone aligned</li>
+            <li><strong>Vendor Management:</strong> Worked with external 3D artists, developers, and agencies to supplement core team capacity</li>
+        </ul>
+
+        <div class="image-placeholder">
+            <p>🌍 Image: Team collaboration map showing distributed locations across continents</p>
+        </div>
+
+        <h2>Key Product Innovations</h2>
+
+        <h3>1. CSV Bulk Upload Functionality</h3>
+        <div class="highlight-box">
+            <h4>💡 The Problem</h4>
+            <p>Early users had to manually upload artworks one-by-one to the platform. For galleries managing 1,000+ pieces, this meant a week of tedious data entry—a massive adoption barrier.</p>
+            
+            <h4>🔧 My Solution</h4>
+            <p>I identified this bottleneck during client onboarding and proposed building CSV/Excel bulk upload. I worked with the development team to design the data mapping, validation rules, and error handling.</p>
+            
+            <h4>📊 Impact</h4>
+            <p><strong>Before:</strong> ~1 week to upload 1,000 artworks manually<br>
+            <strong>After:</strong> <1 hour (upload CSV, review mappings, approve)<br>
+            <strong>Result:</strong> 75% reduction in onboarding time, removed primary friction point</p>
+        </div>
+
+        <h3>2. Custom CRM Layer</h3>
+        <p>Built a lightweight CRM system on top of our platform allowing:</p>
+        <ul>
+            <li><strong>Self-Service Campaign Management:</strong> PMs could configure campaigns without engineering support</li>
+            <li><strong>Client Tracking:</strong> Centralized view of customer status, usage metrics, and support tickets</li>
+            <li><strong>Efficiency Gain:</strong> Saved ~20% of PM time previously spent coordinating with developers</li>
+        </ul>
+
+        <h3>3. API Integration Capabilities</h3>
+        <p>Designed API connection workflows enabling clients to embed AR viewers directly into their websites. This involved:</p>
+        <ul>
+            <li>Defining authentication flows and API documentation</li>
+            <li>Creating onboarding guides for technical and non-technical users</li>
+            <li>Building feedback loops to improve developer experience</li>
+        </ul>
+
+        <div class="image-placeholder">
+            <p>📊 Image: Architecture diagram showing API integration flow</p>
+        </div>
+
+        <h2>Major Milestones & Achievements</h2>
+
+        <h3>Client Acquisition & Revenue</h3>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">3</span>
+                <span class="stat-label">Enterprise Subscriptions Secured</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">2</span>
+                <span class="stat-label">Gallery Clients</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">1</span>
+                <span class="stat-label">Individual Artist</span>
+            </div>
+        </div>
+
+        <p>I personally onboarded our first two enterprise clients—both galleries who became case studies for the platform's value. Their feedback directly shaped features like bulk upload and custom branding options.</p>
+
+        <h3>Platform Growth</h3>
+        <ul>
+            <li><strong>User Base:</strong> Grew to 20,000+ total users across ArtSpaces and related Augmento experiences</li>
+            <li><strong>Visibility Lift:</strong> 60% increase in company brand visibility following major activations</li>
+            <li><strong>Engagement Metrics:</strong> Doubled user engagement and dwell time on platform after key feature launches</li>
+        </ul>
+
+        <h3>Scope Management & Trade-offs</h3>
+        <div class="highlight-box">
+            <h4>🎯 Miami Art Week Case Study</h4>
+            <p>When timeline pressure hit during Miami Art Week preparations, I made the tough call to cut 50% of planned features to protect quality and deadline.</p>
+            <p><strong>Decision Process:</strong> Worked with stakeholders to rank features by value/effort, preserved high-impact functionality, communicated trade-offs transparently</p>
+            <p><strong>Outcome:</strong> Delivered on-time with high-quality experience that impressed clients and led to contract renewals</p>
+        </div>
+
+        <h2>Product Development Process</h2>
+
+        <h3>Discovery & Requirements</h3>
+        <ul>
+            <li>Ran client workshops to understand workflows and pain points</li>
+            <li>Created user stories and acceptance criteria</li>
+            <li>Built wireframes and prototypes in Figma with Creative Director</li>
+        </ul>
+
+        <h3>Development & Iteration</h3>
+        <ul>
+            <li>Weekly engineering syncs to review progress and unblock technical issues</li>
+            <li>Bi-weekly design reviews for UX consistency and brand alignment</li>
+            <li>Continuous QA testing to catch bugs before client-facing releases</li>
+        </ul>
+
+        <h3>Launch & Adoption</h3>
+        <ul>
+            <li>Developed client onboarding documentation and training materials</li>
+            <li>Provided white-glove customer success support for enterprise clients</li>
+            <li>Gathered feedback through post-launch surveys and usage analytics</li>
+        </ul>
+
+        <div class="image-placeholder">
+            <p>📊 Image: Product development sprint timeline with key milestones</p>
+        </div>
+
+        <h2>AI & Automation Integration</h2>
+        <p>To manage distributed operations efficiently, I championed AI adoption across workflows:</p>
+        
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4>Slack AI</h4>
+                <p>Automated meeting summaries and task extraction from conversations</p>
+            </div>
+            <div class="feature-card">
+                <h4>ClickUp AI</h4>
+                <p>Task prioritization and automated status updates</p>
+            </div>
+            <div class="feature-card">
+                <h4>Custom GPT Workspace</h4>
+                <p>Trained model on company data for strategy brainstorming and analysis</p>
+            </div>
+            <div class="feature-card">
+                <h4>Otter AI</h4>
+                <p>Meeting transcription and action item tracking across time zones</p>
+            </div>
+        </div>
+
+        <p><strong>Impact:</strong> These tools enabled asynchronous collaboration across continents, reduced manual reporting by ~10%, and kept distributed stakeholders aligned without constant meetings.</p>
+
+        <h2>Technical Stack & Tools</h2>
+        <div class="tools-list">
+            <span class="tool-tag">Figma</span>
+            <span class="tool-tag">Blender</span>
+            <span class="tool-tag">Unity</span>
+            <span class="tool-tag">AWS</span>
+            <span class="tool-tag">Webflow</span>
+            <span class="tool-tag">ActiveCampaign</span>
+            <span class="tool-tag">ClickUp</span>
+            <span class="tool-tag">Jira</span>
+            <span class="tool-tag">Slack</span>
+            <span class="tool-tag">Google Earth</span>
+            <span class="tool-tag">Otter AI</span>
+        </div>
+
+        <h2>Key Lessons Learned</h2>
+
+        <h3>1. Customer-Driven Development Wins</h3>
+        <p>The CSV bulk upload feature came directly from observing client pain during onboarding. By staying close to users and watching them struggle with manual processes, I identified the highest-impact feature we could build.</p>
+
+        <h3>2. Scope Discipline Protects Quality</h3>
+        <p>Cutting 50% of Miami Art Week features felt painful, but delivering a polished experience on-time built more trust than shipping everything late and buggy. Quality > quantity when building client relationships.</p>
+
+        <h3>3. Async Communication Enables Global Teams</h3>
+        <p>With team members in Bali, Brazil, and Boston, synchronous meetings were impossible. Investing in tools like Otter AI and Slack AI made distributed collaboration sustainable.</p>
+
+        <h3>4. Founding Team Agility Requires Role Flexibility</h3>
+        <p>As a founding team member, I wore many hats: PM, product owner, customer success, QA, vendor manager. This breadth taught me to context-switch rapidly and prioritize ruthlessly.</p>
+
+        <div class="image-placeholder">
+            <p>📸 Image: Team celebration after first enterprise client go-live</p>
+        </div>
+
+        <h2>Reflection</h2>
+        <p>ArtSpaces was my first true 0→1 product experience on a founding team, and it fundamentally shaped how I approach program management. I learned that building a product isn't just about features—it's about deeply understanding user workflows, making tough trade-off decisions, and creating systems that scale.</p>
+
+        <p>The platform's success came from staying obsessively close to customers (onboarding them myself, watching them use the product, iterating based on real pain points) and building just enough process to coordinate a distributed team without creating bureaucracy.</p>
+
+        <p>Seeing galleries digitize 120+ artworks in weeks, watching collectors visualize art in their homes through AR, and hearing clients praise our responsiveness—that validated every late-night sync with Bali and every tough scope cut.</p>
+
+        <div style="text-align: center; margin: 4rem 0;">
+            <a href="https://augmento.com/art-spaces" target="_blank" style="display: inline-block; padding: 1.2rem 3rem; background: var(--tech-blue); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; margin-right: 1rem;">View Live Platform</a>
+            <a href="index.html#projects" style="display: inline-block; padding: 1.2rem 3rem; background: white; color: var(--tech-blue); text-decoration: none; border-radius: 12px; font-weight: 700; border: 2px solid var(--tech-blue);">← Back to Projects</a>
+        </div>
+    </div>
+
+    <footer style="background: var(--navy); color: white; text-align: center; padding: 3rem 2rem;">
+        <p style="color: var(--silver);">&copy; 2025 Linda Tali | Technical Program Manager</p>
+    </footer>
+</body>
+</html>
