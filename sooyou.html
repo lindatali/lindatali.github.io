@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SooYou – Innovation Tournament | Linda's Portfolio</title>
+    <meta name="description" content="SooYou: A pre-event social readiness B2B plugin developed during the Baiada Innovation Tournament at Drexel University. From concept to MVP in one day.">
+    <meta name="keywords" content="SooYou, Innovation Tournament, Baioda, Drexel University, B2B SaaS, Event Technology, Social Anxiety, Product Strategy, MVP, Vibe Coding">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a1628;
+            --navy-mid: #111d35;
+            --navy-light: #162040;
+            --tech-blue: #2d7dd2;
+            --tech-blue-glow: #3a8ee8;
+            --accent-cyan: #00d4ff;
+            --accent-purple: #8b5cf6;
+            --silver: #c0c8d8;
+            --silver-light: #e2e8f0;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --glass-bg: rgba(22, 32, 64, 0.6);
+            --glass-border: rgba(45, 125, 210, 0.15);
+            --glass-hover: rgba(45, 125, 210, 0.25);
+            --gradient-hero: linear-gradient(135deg, #0a1628 0%, #111d35 40%, #162040 100%);
+            --gradient-accent: linear-gradient(135deg, #2d7dd2 0%, #8b5cf6 100%);
+            --gradient-card: linear-gradient(135deg, rgba(22,32,64,0.8) 0%, rgba(16,24,48,0.9) 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--navy);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ───── NAVIGATION ───── */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(10, 22, 40, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-brand {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        .nav-brand span { color: var(--tech-blue); }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent-cyan); }
+
+        /* ───── HERO ───── */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(45,125,210,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            background: rgba(45, 125, 210, 0.1);
+            border: 1px solid rgba(45, 125, 210, 0.25);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.6s ease;
+        }
+        .hero-badge::before {
+            content: '🏆';
+            font-size: 0.85rem;
+        }
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.6s ease 0.1s both;
+        }
+        .hero h1 .gradient-text {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 680px;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 0.6s ease 0.2s both;
+        }
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            animation: fadeInUp 0.6s ease 0.3s both;
+        }
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        .meta-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+        .meta-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--silver-light);
+        }
+
+        /* ───── SECTIONS ───── */
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        .section-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--tech-blue);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+        .section-text {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.85;
+            max-width: 780px;
+        }
+
+        /* ───── DIVIDER ───── */
+        .divider {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .divider-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+        }
+
+        /* ───── STATS ROW ───── */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .stat-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            text-align: center;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .stat-card:hover {
+            border-color: var(--glass-hover);
+            transform: translateY(-2px);
+        }
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* ───── JOURNEY TIMELINE ───── */
+        .journey-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+        .journey-card {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
+        .journey-marker {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+        .journey-dot {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--gradient-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+        .journey-line {
+            width: 2px;
+            flex-grow: 1;
+            min-height: 40px;
+            background: linear-gradient(180deg, var(--tech-blue), transparent);
+            margin-top: 0.5rem;
+        }
+        .journey-body {
+            background: var(--gradient-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        .journey-time {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-cyan);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .journey-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+        .journey-desc {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* ───── IMAGE SHOWCASE ───── */
+        .showcase {
+            margin-top: 3rem;
+        }
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .showcase-item {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            background: var(--navy-mid);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .showcase-item:hover {
+            transform: translateY(-4px);
+            border-color: var(--tech-blue);
+        }
+        .showcase-item img {
+            width: 100%;
+            display: block;
+            transition: transform 0.4s;
+        }
+        .showcase-item:hover img {
+            transform: scale(1.02);
+        }
+        .showcase-caption {
+            padding: 1.25rem;
+            background: var(--gradient-card);
+        }
+        .showcase-caption h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+        }
+        .showcase-caption p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ───── FULL-WIDTH IMAGE ───── */
+        .full-image {
+            margin-top: 2.5rem;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+        }
+        .full-image img {
+            width: 100%;
+            display: block;
+        }
+        .full-image-caption {
+            padding: 1.25rem 1.5rem;
+            background: var(--gradient-card);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .full-image-caption strong {
+            color: var(--text-secondary);
+        }
+
+        /* ───── FEATURE CARDS ───── */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .feature-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .feature-card:hover {
+            border-color: var(--glass-hover);
+            transform: translateY(-2px);
+        }
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(45, 125, 210, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        .feature-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .feature-card p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ───── BUSINESS MODEL ───── */
+        .biz-model-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .biz-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        .biz-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-accent);
+        }
+        .biz-tag {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent-cyan);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .biz-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .biz-card p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .biz-price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--tech-blue-glow);
+            margin-top: 0.75rem;
+        }
+
+        /* ───── VALIDATION SECTION ───── */
+        .validation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+        .validation-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.75rem;
+            text-align: center;
+        }
+        .validation-metric {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+        }
+        .validation-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+            line-height: 1.6;
+        }
+        .validation-interest {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* ───── PIVOT CALLOUT ───── */
+        .pivot-callout {
+            margin-top: 2.5rem;
+            background: linear-gradient(135deg, rgba(45,125,210,0.08) 0%, rgba(139,92,246,0.08) 100%);
+            border: 1px solid rgba(45, 125, 210, 0.2);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+        }
+        .pivot-callout::before {
+            content: '💡';
+            position: absolute;
+            top: -16px;
+            left: 24px;
+            background: var(--navy);
+            padding: 0 0.75rem;
+            font-size: 1.5rem;
+        }
+        .pivot-callout h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+        .pivot-callout p {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* ───── MY ROLE ───── */
+        .role-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .role-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 1.25rem;
+            background: var(--gradient-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+        }
+        .role-bullet {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--tech-blue);
+            flex-shrink: 0;
+            margin-top: 0.5rem;
+        }
+        .role-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ───── TEAM CARDS ───── */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+        }
+        .team-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--gradient-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .team-card:hover {
+            border-color: var(--glass-hover);
+            transform: translateY(-2px);
+        }
+        .team-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gradient-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: white;
+            flex-shrink: 0;
+        }
+        .team-info h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.15rem;
+        }
+        .team-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ───── TAKEAWAYS ───── */
+        .takeaway-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .takeaway-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        .takeaway-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: rgba(45, 125, 210, 0.3);
+            margin-bottom: 0.5rem;
+        }
+        .takeaway-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .takeaway-card p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ───── BACK LINK ───── */
+        .back-section {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--tech-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.75rem 2rem;
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background: rgba(45, 125, 210, 0.1);
+            border-color: var(--tech-blue);
+        }
+
+        /* ───── FOOTER ───── */
+        .footer {
+            border-top: 1px solid var(--glass-border);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* ───── ANIMATIONS ───── */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ───── RESPONSIVE ───── */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero { min-height: 60vh; padding: 6rem 1.5rem 3rem; }
+            .hero-meta { gap: 1.25rem; }
+            .section { padding: 3rem 1.5rem; }
+            .showcase-grid { grid-template-columns: 1fr; }
+            .journey-card { grid-template-columns: 1fr; }
+            .journey-marker { display: none; }
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 480px) {
+            .stats-row { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .biz-model-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ───── NAV ───── -->
+<nav class="nav">
+    <a href="index.html" class="nav-brand">&larr; <span>Portfolio</span></a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#about">About</a>
+    </div>
+</nav>
+
+<!-- ───── HERO ───── -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">Baiada Innovation Tournament · Drexel University</div>
+        <h1>SooYou: <span class="gradient-text">Universal Event Plugin</span></h1>
+        <p class="hero-subtitle">
+            A pre-event social readiness and connection layer designed to help people feel calm, confident, and prepared to socialize — built from concept to MVP in a single intensive day.
+        </p>
+        <div class="hero-meta">
+            <div class="meta-item">
+                <span class="meta-label">Role</span>
+                <span class="meta-value">Product Strategist & TPM</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Timeline</span>
+                <span class="meta-value">1-Day Sprint</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Category</span>
+                <span class="meta-value">B2B SaaS / Event Tech</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Tools</span>
+                <span class="meta-value">Google Antigravity, Vibe Coding, AI-Assisted Prototyping</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Validation</span>
+                <span class="meta-value">25 User Interviews · 88% Demand</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Event</span>
+                <span class="meta-value">Innovation Showcase</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ───── IMPACT STATS ───── -->
+<section class="section animate-on-scroll">
+    <div class="section-label">Key Metrics</div>
+    <div class="section-title">Impact at a Glance</div>
+    <div class="stats-row">
+        <div class="stat-card">
+            <div class="stat-number">88%</div>
+            <div class="stat-label">Want profile-matched events</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">80%</div>
+            <div class="stat-label">Fear awkward encounters</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">30%+</div>
+            <div class="stat-label">Projected attendance uplift</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">25</div>
+            <div class="stat-label">User interviews conducted</div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ───── THE CHALLENGE ───── -->
+<section class="section animate-on-scroll">
+    <div class="section-label">The Challenge</div>
+    <div class="section-title">A $100 Billion Crisis Hiding in Plain Sight</div>
+    <p class="section-text">
+        The tournament challenge focused on the growing crisis of loneliness and social fragmentation. People feel increasingly disconnected despite constant digital connectivity; traditional social structures are weakening; and many individuals lack reliable pathways to form meaningful relationships. Using a framework that evaluated problems by frequency, severity, urgency, and longevity, social isolation scored high across every dimension — confirming we were looking at a real, high-pain problem worth solving.
+    </p>
+    <p class="section-text" style="margin-top: 1rem;">
+        For event platforms specifically, 30%+ of registrants skip events driven by social anxiety and fear of attending alone — translating directly into lost revenue for platforms like Eventbrite, Meetup, and Cvent. No existing tools address the gap between sign-up and arrival.
+    </p>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ───── THE JOURNEY ───── -->
+<section class="section animate-on-scroll">
+    <div class="section-label">The Journey</div>
+    <div class="section-title">From Ambitious Ecosystem to Focused Plugin</div>
+    <p class="section-text" style="margin-bottom: 2rem;">
+        Our day-long sprint involved two critical pivots, each guided by mentor feedback and user validation — demonstrating rapid strategic thinking under pressure.
+    </p>
+
+    <div class="journey-grid">
+        <div class="journey-card">
+            <div class="journey-marker">
+                <div class="journey-dot">1</div>
+                <div class="journey-line"></div>
+            </div>
+            <div class="journey-body">
+                <div class="journey-time">Morning — Initial Vision</div>
+                <div class="journey-heading">A Global Social Operating System</div>
+                <p class="journey-desc">
+                    Our first concept was ambitious: a universal "social OS" replacing dozens of fragmented apps for networking, hobbies, dating, and travel. One platform where anyone could connect authentically across all life domains, with built-in support for social anxiety. Exciting but far too broad for a testable wedge.
+                </p>
+            </div>
+        </div>
+
+        <div class="journey-card">
+            <div class="journey-marker">
+                <div class="journey-dot">2</div>
+                <div class="journey-line"></div>
+            </div>
+            <div class="journey-body">
+                <div class="journey-time">Midday — First Pivot</div>
+                <div class="journey-heading">Narrowing to Events as the Context</div>
+                <p class="journey-desc">
+                    Mentor feedback consistently pointed us toward events as a concrete, high-leverage context where anxiety shows up clearly and where we could identify a paying customer. Conferences, meetups, and community events are natural social hubs, yet existing platforms handle logistics and ticketing without touching pre-event social anxiety. This became our focus.
+                </p>
+            </div>
+        </div>
+
+        <div class="journey-card">
+            <div class="journey-marker">
+                <div class="journey-dot">3</div>
+                <div class="journey-line"></div>
+            </div>
+            <div class="journey-body">
+                <div class="journey-time">Afternoon — Second Pivot</div>
+                <div class="journey-heading">From Standalone App to B2B Plugin</div>
+                <p class="journey-desc">
+                    After 25 user interviews and deeper mentor conversations, we realized we didn't need to rebuild Eventbrite or Meetup. The real value was augmenting existing platforms with a social-anxiety-focused layer. We pivoted to a plugin model — integrating via APIs/SDKs with ticketing platforms, community tools, and enterprise event systems. This reduced scope, clarified the customer, and let us focus on what mattered: helping people feel ready to connect.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="pivot-callout">
+        <h4>Key Insight</h4>
+        <p>
+            Two pivots in one day might sound chaotic, but each was deliberate and data-driven. The first narrowed our context (events), the second clarified our delivery model (plugin, not platform). This is textbook lean methodology executed at tournament speed — validate assumptions quickly and adapt.
+        </p>
+    </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ───── THE SOLUTION ───── -->
+<section class="section animate-on-scroll">
+    <div class="section-label">The Solution</div>
+    <div class="section-title">SooYou EventConnect Plugin</div>
+    <p class="section-text">
+        A pre-event social readiness and connection plugin that event platforms can embed to help attendees feel calm, prepared, and authentically connected — driving lower anxiety, higher attendance, and stronger communities.
+    </p>
+
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">👤</div>
+            <h4>Quick Profile on RSVP</h4>
+            <p>Lightweight opt-in during event registration capturing interests, background, and social comfort level — expandable later for deeper personalization.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🤝</div>
+            <h4>Smart Buddy Matching</h4>
+            <p>AI-powered pairing by shared interests, professional experience, and compatible social energy. Connect with event buddies before deciding to attend.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🧘</div>
+            <h4>Pre-Event Anxiety Toolkit</h4>
+            <p>Wellness center with guided breathing, body scan sequences, grounding techniques, and thought-reframing exercises to build social confidence.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🎮</div>
+            <h4>Icebreakers & AI Prompter</h4>
+            <p>Context-aware conversation starters, icebreaker games, and a live prompter attendees can tap during conversations when they feel stuck.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📋</div>
+            <h4>Smart Attendee Lists</h4>
+            <p>Auto-generated group chats and attendee browsing ordered by best matches — with filters to ensure relevant, comfortable connections.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔄</div>
+            <h4>Post-Event Recommendations</h4>
+            <p>After successful interactions, SooYou recommends future events and suggests reconnecting with people met — reinforcing emerging micro-communities.</p>
+        </div>
+    </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ───── MVP SHOWCASE ───── -->
+<section class="section animate-on-scroll">
+    <div class="section-label">MVP Prototype</div>
+    <div class="section-title">Built with Vibe Coding in One Day</div>
+    <p class="section-text">
+        Using Google Antigravity — an AI-powered agentic IDE — we rapidly prototyped a working product showcasing the complete user flow, from landing page to wellness center to matching interface. The dark, calm UI design was intentional: reducing visual stress for anxious users.
+    </p>
+
+    <!-- Landing Page - Full Width -->
+    <div class="full-image">
+        <img src="images/ooyou/sooyou-landing.png" alt="SooYou landing page with hero section showing Connect Deeper, Meet Authentically messaging and three feature cards for Interest Matching, Social Battery Aware, and Icebreakers & Games">
+        <div class="full-image-caption">
+            <strong>Landing Page</strong> — "Connect Deeper. Meet Authentically." positioning with core value props: interest matching, social battery awareness, and icebreaker games.
+        </div>
+    </div>
+
+    <!-- Wellness Center Screens -->
+    <div class="showcase-grid" style="margin-top: 1.5rem;">
+        <div class="showcase-item">
+            <img src="images/ooyou/sooyou-wellness-exhale.png" alt="SooYou Wellness Center showing breathing, grounding, reframing, and bodyscan tabs with box breathing exercise">
+            <div class="showcase-caption">
+                <h4>Wellness Center — Breathing Module</h4>
+                <p>Box breathing with category tabs for Breathing, Grounding, Reframing, and Bodyscan exercises.</p>
+            </div>
+        </div>
+        <div class="showcase-item">
+            <img src="images/ooyou/sooyou-wellness-breathing.png" alt="SooYou box breathing exercise in action showing inhale phase with 4-second timer and daily affirmation">
+            <div class="showcase-caption">
+                <h4>Box Breathing — Active State</h4>
+                <p>Animated inhale/hold/exhale cycle with daily affirmations appearing below the exercise.</p>
+            </div>
+        </div>
+        <div class="showcase-item">
+            <img src="images/ooyou/sooyou-reframing.png" alt="SooYou thought reframing interface where users can input negative thoughts and receive balanced perspective reframes">
+            <div class="showcase-caption">
+                <h4>Thought Reframing</h4>
+                <p>Users type a negative thought and receive a reframed, balanced perspective — powered by AI.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="showcase-grid" style="margin-top: 1.5rem;">
+        <div class="showcase-item">
+            <img src="images/ooyou/sooyou-bodyscan.png" alt="SooYou body scan interface showing a human figure with highlighted toes and feet area for progressive muscle relaxation">
+            <div class="showcase-caption">
+                <h4>Body Scan — Toes & Feet</h4>
+                <p>Progressive muscle relaxation with visual body map highlighting the target area.</p>
+            </div>
+        </div>
+        <div class="showcase-item">
+            <img src="images/ooyou/sooyou-bodyscan-arms.png" alt="SooYou body scan showing hands and arms area highlighted with previous and next area navigation">
+            <div class="showcase-caption">
+                <h4>Body Scan — Hands & Arms</h4>
+                <p>Sequential body areas with Previous/Next navigation and daily affirmation: "Small steps lead to big confidence."</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ───── VALIDATION ───── -->
+<section class="section animate-on-scroll">
+    <div class="section-label">User Research</div>
+    <div class="section-title">Validated by 25 Interviews</div>
+    <p class="section-text">
+        We ran rapid user interviews focused on comfort attending events alone, interest in profile matching, fear of awkwardness, and desire for social readiness tools. The data confirmed strong demand across every feature area.
+    </p>
+
+    <div class="validation-grid">
+        <div class="validation-card">
+            <div class="validation-metric">88%</div>
+            <div class="validation-desc">Want profile-matched events</div>
+            <div class="validation-interest">Avg. interest score: 8.3/10</div>
+        </div>
+        <div class="validation-card">
+            <div class="validation-metric">80%</div>
+            <div class="validation-desc">Want to avoid awkward encounters</div>
+            <div class="validation-interest">Avg. interest score: 7.8/10</div>
+        </div>
+        <div class="validation-card">
+            <div class="validation-metric">76%</div>
+            <div class="validation-desc">Want a single unified solution</div>
+            <div class="validation-interest">Avg. interest score: 7.6/10</div>
+        </div>
+        <div class="validation-card">
+            <div class="validation-metric">48%</div>
+            <div class="validation-desc">Want conversation starters</div>
+            <div class="validation-interest">Avg. interest score: 6.2/10</div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ───── BUSINESS MODEL ───── -->
+<section class="section animate-on-scroll">
+    <div class="section-label">Business Model</div>
+    <div class="section-title">Sell to Platforms, Not Users</div>
+    <p class="section-text">
+        SooYou's B2B model aligns directly with the KPIs event platforms already care about — attendance, engagement, and repeat participation. End users access SooYou for free; platforms pay because it drives their revenue.
+    </p>
+
+    <div class="biz-model-grid">
+        <div class="biz-card">
+            <div class="biz-tag">MVP Revenue</div>
+            <h4>Per-Registrant Fee</h4>
+            <p>Charge platforms a small fee per attendee who opts in and engages with SooYou. Only pay for actual usage — an easy upsell.</p>
+            <div class="biz-price">$0.50–$2.00 per user</div>
+        </div>
+        <div class="biz-card">
+            <div class="biz-tag">Scale Revenue</div>
+            <h4>SaaS Subscription</h4>
+            <p>Monthly subscription tiered by active users or events per month. Ideal for larger platforms and enterprise organizers wanting predictable billing.</p>
+            <div class="biz-price">Tiered monthly plans</div>
+        </div>
+        <div class="biz-card">
+            <div class="biz-tag">Growth Revenue</div>
+            <h4>Performance-Based Upsell</h4>
+            <p>Bonus fees tied to reduced no-show rates and increased repeat attendance — directly aligning SooYou's success with platform ROI.</p>
+            <div class="biz-price">Outcome-linked bonuses</div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ───── LEAN CANVAS ───── -->
+<section class="section animate-on-scroll">
+    <div class="section-label">Strategic Framework</div>
+    <div class="section-title">Lean Canvas</div>
+    <p class="section-text">
+        We translated the evolving idea into a structured Lean Canvas to clarify strategy, identify assumptions, and prepare a clear narrative for the judges.
+    </p>
+    <div class="full-image">
+        <img src="images/ooyou/sooyou-lean-canvas.jpeg" alt="SooYou Lean Canvas showing Problem, Solution, Unique Value Proposition, Unfair Advantage, Customer Segments, Key Metrics, Channels, Cost Structure, and Revenue Streams">
+        <div class="full-image-caption">
+            <strong>Lean Canvas</strong> — Structured framework covering problem-solution fit, customer segments, revenue streams, and validation plan.
+        </div>
+    </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ───── MY ROLE ───── -->
+<section class="section animate-on-scroll">
+    <div class="section-label">My Contribution</div>
+    <div class="section-title">What I Brought to the Team</div>
+    <div class="role-highlights">
+        <div class="role-item">
+            <div class="role-bullet"></div>
+            <p><strong>Product Strategy & Pivots</strong> — Led the team through two strategic pivots by synthesizing mentor feedback, user data, and competitive analysis into actionable direction changes.</p>
+        </div>
+        <div class="role-item">
+            <div class="role-bullet"></div>
+            <p><strong>User Research & Validation</strong> — Designed and executed the rapid interview framework, analyzing 25 responses to validate product-market fit within hours.</p>
+        </div>
+        <div class="role-item">
+            <div class="role-bullet"></div>
+            <p><strong>Business Model Design</strong> — Architected the B2B plugin model that aligned SooYou's value proposition with event platform KPIs, enabling a clear path to revenue.</p>
+        </div>
+        <div class="role-item">
+            <div class="role-bullet"></div>
+            <p><strong>MVP Prototyping</strong> — Used Google Antigravity's agentic IDE capabilities to rapidly build and iterate on functional screens, including the Wellness Center and matching interfaces.</p>
+        </div>
+        <div class="role-item">
+            <div class="role-bullet"></div>
+            <p><strong>Lean Canvas & Pitch Narrative</strong> — Structured the strategic framework and final presentation narrative connecting problem-solution fit to business viability.</p>
+        </div>
+        <div class="role-item">
+            <div class="role-bullet"></div>
+            <p><strong>Stakeholder Communication</strong> — Managed mentor check-ins and translated expert feedback into immediate product decisions throughout the day.</p>
+        </div>
+    </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ───── THE TEAM ───── -->
+<section class="section animate-on-scroll">
+    <div class="section-label">The Team</div>
+    <div class="section-title">Built Together at Drexel</div>
+    <p class="section-text" style="margin-bottom: 2rem;">
+        SooYou was a true team effort — four MS Business Information Technology students at Drexel University, each bringing complementary strengths to a high-pressure, single-day sprint.
+    </p>
+    <div class="team-grid">
+        <div class="team-card">
+            <div class="team-avatar">L</div>
+            <div class="team-info">
+                <h4>Linda</h4>
+                <p>Product Strategy, User Research, Business Model & Pitch</p>
+            </div>
+        </div>
+        <div class="team-card">
+            <div class="team-avatar">B</div>
+            <div class="team-info">
+                <h4>Bradley Chikwavarara</h4>
+                <p>Team Member</p>
+            </div>
+        </div>
+        <div class="team-card">
+            <div class="team-avatar">M</div>
+            <div class="team-info">
+                <h4>Manudev Malik</h4>
+                <p>Team Member</p>
+            </div>
+        </div>
+        <div class="team-card">
+            <div class="team-avatar">S</div>
+            <div class="team-info">
+                <h4>Samarth Patel</h4>
+                <p>Team Member</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ───── TAKEAWAYS ───── -->
+<section class="section animate-on-scroll">
+    <div class="section-label">Reflections</div>
+    <div class="section-title">Key Takeaways</div>
+    <div class="takeaway-grid">
+        <div class="takeaway-card">
+            <div class="takeaway-number">01</div>
+            <h4>Speed ≠ Sacrifice</h4>
+            <p>Building an MVP in one day didn't mean cutting corners — it meant ruthlessly prioritizing scope while maintaining quality in execution, research, and strategy.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-number">02</div>
+            <h4>Pivots Are Features, Not Failures</h4>
+            <p>Two pivots in one day kept us honest. Each was driven by real data and expert input, narrowing from an unbounded vision to a focused, fundable product.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-number">03</div>
+            <h4>B2B Framing Unlocks Distribution</h4>
+            <p>The shift from "build a new platform" to "augment existing ones" solved both the distribution and the business model problem simultaneously.</p>
+        </div>
+        <div class="takeaway-card">
+            <div class="takeaway-number">04</div>
+            <h4>Google Antigravity Accelerates Prototyping</h4>
+            <p>Using Google's agentic IDE for vibe coding allowed us to go from wireframes to interactive screens in hours, giving judges and users something tangible to react to.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ───── BACK ───── -->
+<div class="back-section">
+    <a href="index.html" class="back-link">&larr; Back to All Projects</a>
+</div>
+
+<!-- ───── FOOTER ───── -->
+<footer class="footer">
+    &copy; 2026 Linda — Technical Program Manager | AI/ML & XR
+</footer>
+
+<!-- ───── SCROLL ANIMATION ───── -->
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+    });
+</script>
+
+</body>
+</html>
