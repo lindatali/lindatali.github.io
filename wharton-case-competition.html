@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wharton Alliance Case Competition 2026 | Linda's Portfolio</title>
+    <meta name="description" content="Top 8 Finalist at the 12th Annual Wharton Alliance Diversity Case Competition. Presented a self-funding ESG transformation strategy for a $240M garment manufacturer, judged by McKinsey & Company.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a1628;
+            --navy-mid: #111d35;
+            --navy-light: #162040;
+            --tech-blue: #2d7dd2;
+            --tech-blue-glow: #3a8ee8;
+            --accent-cyan: #00d4ff;
+            --accent-purple: #8b5cf6;
+            --silver: #c0c8d8;
+            --silver-light: #e2e8f0;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --glass-bg: rgba(22, 32, 64, 0.6);
+            --glass-border: rgba(45, 125, 210, 0.15);
+            --glass-hover: rgba(45, 125, 210, 0.25);
+            --gradient-hero: linear-gradient(135deg, #0a1628 0%, #111d35 40%, #162040 100%);
+            --gradient-accent: linear-gradient(135deg, #2d7dd2 0%, #8b5cf6 100%);
+            --gradient-card: linear-gradient(135deg, rgba(22,32,64,0.8) 0%, rgba(16,24,48,0.9) 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--navy);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ───── NAVIGATION ───── */
+        .nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(10, 22, 40, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-brand {
+            font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+            font-size: 1.1rem; color: var(--text-primary);
+            text-decoration: none; letter-spacing: -0.02em;
+        }
+        .nav-brand span { color: var(--tech-blue); }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.85rem; font-weight: 500;
+            letter-spacing: 0.03em; text-transform: uppercase; transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent-cyan); }
+
+        /* ───── HERO ───── */
+        .hero {
+            min-height: 80vh; display: flex; align-items: center;
+            padding: 8rem 2rem 4rem;
+            background: var(--gradient-hero); position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: -200px; right: -200px;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(45,125,210,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero::after {
+            content: ''; position: absolute; bottom: -100px; left: -100px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-inner {
+            max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; width: 100%;
+        }
+        .hero-tag {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(45, 125, 210, 0.15); border: 1px solid rgba(45, 125, 210, 0.3);
+            padding: 0.4rem 1rem; border-radius: 100px;
+            font-size: 0.8rem; font-weight: 600; color: var(--accent-cyan);
+            letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 700;
+            line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 1.5rem;
+        }
+        .hero h1 .highlight {
+            background: var(--gradient-accent); -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .hero-subtitle {
+            font-size: 1.15rem; color: var(--text-secondary);
+            max-width: 700px; margin-bottom: 2.5rem; line-height: 1.8;
+        }
+        .hero-meta {
+            display: flex; flex-wrap: wrap; gap: 2rem;
+            padding-top: 2rem; border-top: 1px solid var(--glass-border);
+        }
+        .meta-item { display: flex; flex-direction: column; gap: 0.3rem; }
+        .meta-label {
+            font-size: 0.7rem; font-weight: 600; color: var(--text-muted);
+            text-transform: uppercase; letter-spacing: 0.08em;
+        }
+        .meta-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem; font-weight: 600; color: var(--text-primary);
+        }
+
+        /* ───── SECTIONS ───── */
+        .section {
+            padding: 5rem 2rem; max-width: 1100px; margin: 0 auto;
+        }
+        .section-label {
+            font-size: 0.7rem; font-weight: 700; color: var(--tech-blue);
+            text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.8rem;
+        }
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700;
+            letter-spacing: -0.02em; margin-bottom: 1.5rem; line-height: 1.2;
+        }
+        .section-text {
+            font-size: 1.05rem; color: var(--text-secondary);
+            max-width: 800px; line-height: 1.9;
+        }
+
+        /* ───── STATS ───── */
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem; margin: 3rem 0;
+        }
+        .stat-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px; padding: 2rem; text-align: center;
+            transition: all 0.4s;
+        }
+        .stat-card:hover {
+            border-color: var(--tech-blue);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(45, 125, 210, 0.15);
+        }
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem; font-weight: 700;
+            background: var(--gradient-accent); -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .stat-desc {
+            font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;
+            line-height: 1.5;
+        }
+
+        /* ───── DIVIDER ───── */
+        .divider {
+            max-width: 1100px; margin: 0 auto;
+            border: none; border-top: 1px solid var(--glass-border);
+        }
+
+        /* ───── EVENT PHOTOS ───── */
+        .photo-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 1.5rem; margin: 3rem 0;
+        }
+        .photo-card {
+            border-radius: 16px; overflow: hidden;
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s;
+        }
+        .photo-card:hover {
+            border-color: var(--tech-blue);
+            transform: translateY(-4px);
+        }
+        .photo-card img {
+            width: 100%; height: 350px; object-fit: cover; display: block;
+        }
+        .photo-caption {
+            padding: 1rem 1.2rem;
+            background: var(--glass-bg);
+            font-size: 0.85rem; color: var(--text-secondary);
+        }
+
+        /* ───── CHALLENGE ───── */
+        .challenge-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem; margin: 3rem 0;
+        }
+        .challenge-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px; padding: 2rem;
+            border-top: 3px solid var(--tech-blue);
+            transition: all 0.4s;
+        }
+        .challenge-card:hover {
+            border-color: var(--glass-hover);
+            transform: translateY(-4px);
+        }
+        .challenge-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem; font-weight: 600; margin-bottom: 0.8rem;
+            color: var(--text-primary);
+        }
+        .challenge-card p {
+            font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;
+        }
+        .challenge-stat {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem; font-weight: 700; color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
+        }
+
+        /* ───── SOLUTION / PILLARS ───── */
+        .thesis-box {
+            background: linear-gradient(135deg, rgba(45,125,210,0.1) 0%, rgba(139,92,246,0.08) 100%);
+            border: 1px solid rgba(45, 125, 210, 0.25);
+            border-radius: 16px; padding: 2.5rem;
+            margin: 2.5rem 0; text-align: center;
+        }
+        .thesis-box blockquote {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem; font-weight: 600; font-style: italic;
+            color: var(--text-primary); line-height: 1.5;
+        }
+        .thesis-box .attribution {
+            font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;
+        }
+
+        .pillar-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem; margin: 3rem 0;
+        }
+        .pillar-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px; padding: 2rem;
+            transition: all 0.4s; position: relative; overflow: hidden;
+        }
+        .pillar-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 3px; background: var(--gradient-accent);
+        }
+        .pillar-card:hover {
+            border-color: var(--tech-blue);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(45, 125, 210, 0.15);
+        }
+        .pillar-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem; font-weight: 700;
+            background: var(--gradient-accent); -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; background-clip: text;
+            opacity: 0.3; margin-bottom: 0.5rem;
+        }
+        .pillar-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.15rem; font-weight: 600; margin-bottom: 1rem;
+        }
+        .pillar-card p {
+            font-size: 0.9rem; color: var(--text-secondary); line-height: 1.8;
+        }
+        .pillar-highlight {
+            display: inline-block; margin-top: 1rem;
+            background: rgba(45, 125, 210, 0.15); border: 1px solid rgba(45, 125, 210, 0.25);
+            padding: 0.3rem 0.8rem; border-radius: 8px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem; font-weight: 600; color: var(--accent-cyan);
+        }
+
+        /* ───── SLIDE SHOWCASE ───── */
+        .slide-showcase {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 1.5rem; margin: 3rem 0;
+        }
+        .slide-item {
+            border-radius: 12px; overflow: hidden;
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s;
+        }
+        .slide-item:hover {
+            border-color: var(--tech-blue);
+            box-shadow: 0 8px 30px rgba(45, 125, 210, 0.15);
+        }
+        .slide-item img {
+            width: 100%; display: block;
+        }
+        .slide-label {
+            padding: 0.8rem 1.2rem;
+            background: var(--glass-bg);
+            font-size: 0.8rem; color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* ───── WATERFALL ───── */
+        .waterfall {
+            display: flex; align-items: flex-end; justify-content: center;
+            gap: 0.8rem; margin: 3rem 0; padding: 2rem;
+            background: var(--gradient-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px; min-height: 300px;
+        }
+        .waterfall-bar {
+            display: flex; flex-direction: column; align-items: center;
+            gap: 0.5rem; flex: 1; max-width: 120px;
+        }
+        .waterfall-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem; font-weight: 700;
+        }
+        .waterfall-block {
+            width: 100%; border-radius: 6px; transition: all 0.3s;
+            min-height: 10px;
+        }
+        .waterfall-block.positive { background: linear-gradient(180deg, #2d7dd2, #3a8ee8); }
+        .waterfall-block.negative { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+        .waterfall-block.total { background: var(--gradient-accent); }
+        .waterfall-label {
+            font-size: 0.7rem; color: var(--text-muted);
+            text-align: center; line-height: 1.3;
+        }
+
+        /* ───── TEAM ───── */
+        .team-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem; margin: 3rem 0;
+        }
+        .team-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px; padding: 2rem;
+            display: flex; align-items: center; gap: 1.5rem;
+            transition: all 0.4s;
+        }
+        .team-card:hover {
+            border-color: var(--tech-blue); transform: translateY(-4px);
+        }
+        .team-avatar {
+            width: 56px; height: 56px; border-radius: 50%;
+            background: var(--gradient-accent);
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700; font-size: 1.2rem; color: white; flex-shrink: 0;
+        }
+        .team-info h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem; font-weight: 600;
+        }
+        .team-info p {
+            font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.2rem;
+        }
+
+        /* ───── KEY INSIGHTS ───── */
+        .insights-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem; margin: 3rem 0;
+        }
+        .insight-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px; padding: 2rem;
+            transition: all 0.4s;
+        }
+        .insight-card:hover {
+            border-color: var(--tech-blue); transform: translateY(-4px);
+        }
+        .insight-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem; font-weight: 600; margin-bottom: 0.8rem;
+            color: var(--accent-cyan);
+        }
+        .insight-card p {
+            font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;
+        }
+
+        /* ───── MY ROLE ───── */
+        .role-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1rem; margin: 3rem 0;
+        }
+        .role-item {
+            background: var(--gradient-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px; padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        .role-item:hover {
+            border-color: var(--tech-blue); transform: translateY(-2px);
+        }
+        .role-item h5 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem; font-weight: 600; color: var(--text-primary);
+        }
+        .role-item p {
+            font-size: 0.8rem; color: var(--text-muted); margin-top: 0.3rem;
+        }
+
+        /* ───── BACK LINK ───── */
+        .back-link {
+            text-align: center; padding: 4rem 2rem;
+        }
+        .back-link a {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            color: var(--tech-blue); text-decoration: none;
+            font-weight: 600; font-size: 1rem;
+            padding: 1rem 2.5rem; border-radius: 12px;
+            border: 1px solid var(--tech-blue);
+            transition: all 0.3s;
+        }
+        .back-link a:hover {
+            background: var(--tech-blue); color: white;
+        }
+
+        /* ───── SCROLL ANIMATIONS ───── */
+        .fade-up {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        /* ───── RESPONSIVE ───── */
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .photo-grid, .challenge-grid, .pillar-grid,
+            .slide-showcase, .team-grid, .insights-grid { grid-template-columns: 1fr; }
+            .role-grid { grid-template-columns: 1fr 1fr; }
+            .hero-meta { gap: 1.5rem; }
+            .nav-links { display: none; }
+            .waterfall { flex-wrap: wrap; gap: 0.5rem; }
+        }
+        @media (max-width: 480px) {
+            .stats-grid, .role-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+    <a href="index.html" class="nav-brand">Linda <span>Tali</span></a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-tag">🏆 Top 8 Finalist · Wharton Alliance</div>
+        <h1>Wharton Alliance<br>Diversity <span class="highlight">Case Competition</span></h1>
+        <p class="hero-subtitle">
+            Developed a self-funding ESG transformation strategy for a $240M Bangladeshi garment manufacturer — turning $15.4M in operational waste into the engine for labor compliance, environmental upgrades, and commercial resilience. Presented live at Wharton to McKinsey & Company judges.
+        </p>
+        <div class="hero-meta">
+            <div class="meta-item">
+                <span class="meta-label">Competition</span>
+                <span class="meta-value">12th Annual WACC</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Date</span>
+                <span class="meta-value">February 27, 2026</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Host</span>
+                <span class="meta-value">The Wharton School, UPenn</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Judges</span>
+                <span class="meta-value">McKinsey & Company</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Result</span>
+                <span class="meta-value">Top 8 of 25 Teams</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Format</span>
+                <span class="meta-value">15-min Presentation + Q&A</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- IMPACT STATS -->
+<section class="section fade-up">
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number">$15.5M</div>
+            <div class="stat-desc">Net Financial Improvement Modeled</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">Top 8</div>
+            <div class="stat-desc">Finalist out of 25 Submissions</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">9:1</div>
+            <div class="stat-desc">ROI — $1 Compliance = $9 Savings</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">$7M</div>
+            <div class="stat-desc">Total Investment, Self-Funded</div>
+        </div>
+    </div>
+</section>
+
+<hr class="divider">
+
+<!-- EVENT PHOTOS -->
+<section class="section fade-up">
+    <div class="section-label">The Event</div>
+    <h2 class="section-title">McKinsey × Wharton Alliance</h2>
+    <p class="section-text">
+        The 12th Annual Wharton Alliance Diversity Case Competition brought together top graduate and undergraduate teams from across the country. Sponsored by McKinsey & Company, BCG, Capital One, L.E.K. Consulting, and Warburg Pincus, the competition challenged teams to develop actionable strategies addressing both competitiveness and social impact for a garment manufacturer facing an ESG crisis.
+    </p>
+    <div class="photo-grid">
+        <div class="photo-card">
+            <img src="images/wharton/team-photo.jpg" alt="Linda Tali and Melita Wessely at the Wharton Alliance Case Competition">
+            <div class="photo-caption">Linda Tali & Melita Wessely — Team 014 at Huntsman Hall, Wharton</div>
+        </div>
+        <div class="photo-card">
+            <img src="images/wharton/mckinsey-welcome.jpg" alt="McKinsey & Company welcome screen at the Wharton Alliance Event">
+            <div class="photo-caption">McKinsey × Wharton Alliance Event — February 27, 2026</div>
+        </div>
+    </div>
+</section>
+
+<hr class="divider">
+
+<!-- THE CASE / CHALLENGE -->
+<section class="section fade-up">
+    <div class="section-label">The Case</div>
+    <h2 class="section-title">WuhLuhWa Apparel: A $240M Company in Crisis</h2>
+    <p class="section-text" style="margin-bottom: 2rem;">
+        WuhLuhWa Apparel Ltd., a mid-sized Bangladeshi garment manufacturer with 8 factories and 4,800 workers, faced three simultaneous pressures threatening its survival. Teams had 48 hours from case release to deck submission, with finalists presenting live to a McKinsey-led judging panel.
+    </p>
+
+    <div class="challenge-grid">
+        <div class="challenge-card">
+            <div class="challenge-stat">$15.4M</div>
+            <h4>Cost & Capacity Squeeze</h4>
+            <p>33% material loss rate (vs. 20% industry benchmark) = $15.4M annual waste. 23% capacity underutilization after losing a major client representing 18% of volume.</p>
+        </div>
+        <div class="challenge-card">
+            <div class="challenge-stat">1,680</div>
+            <h4>Labor & Social Pressure</h4>
+            <p>Workers (35%) paid below legal minimum wage. 60% report workplace threats. Only 5% female supervisors despite 64% female workforce. 30% working illegal overtime.</p>
+        </div>
+        <div class="challenge-card">
+            <div class="challenge-stat">$70–90M</div>
+            <h4>Environmental & PFAS Risk</h4>
+            <p>100% of garments contain PFAS. EU PFAS bans taking effect July 2026. $70–90M in EU market access at risk. 87% of regional surface water contaminated.</p>
+        </div>
+    </div>
+</section>
+
+<hr class="divider">
+
+<!-- OUR SOLUTION -->
+<section class="section fade-up">
+    <div class="section-label">Our Solution</div>
+    <h2 class="section-title">Targeted Transformation: Option B</h2>
+
+    <div class="thesis-box">
+        <blockquote>"Profitability and responsibility aren't a trade-off — they're the same decision."</blockquote>
+        <div class="attribution">Core thesis of our presentation — every $1 invested in compliance generates $9 in operational savings</div>
+    </div>
+
+    <p class="section-text" style="margin-bottom: 1rem;">
+        We evaluated three strategic paths: minimal compliance (too risky), targeted transformation (self-funding), and full premium repositioning (too capital-intensive). Our recommended Option B uses operational waste savings to entirely self-fund ESG compliance — requiring no external capital despite a $100M debt load.
+    </p>
+
+    <div class="pillar-grid">
+        <div class="pillar-card">
+            <div class="pillar-number">01</div>
+            <h4>Waste as the Cash Engine</h4>
+            <p>Reduce fabric waste from 33% → 25% via AI-assisted cutting (Gerber, Optitex), lean/5S programs, and 3D digital sampling (CLO, Browzwear). $1M investment unlocks $15.4M annual savings at scale.</p>
+            <span class="pillar-highlight">$15.4M/year savings</span>
+        </div>
+        <div class="pillar-card">
+            <div class="pillar-number">02</div>
+            <h4>Labor & Gender Equity</h4>
+            <p>Close the wage gap for 1,680 workers at $0.4M/year (0.17% of revenue). Scale female supervisors from 5% → 20% through a GEAR-style $300K intervention yielding $1.2M+ productivity gains.</p>
+            <span class="pillar-highlight">$300K → $1.2M+ return</span>
+        </div>
+        <div class="pillar-card">
+            <div class="pillar-number">03</div>
+            <h4>PFAS-Free EU Market Access</h4>
+            <p>$2.5M capex + $1M/year ongoing for chemical substitution and water treatment upgrades. Protects $70–90M in EU market access as France, Denmark, and EU-wide PFAS bans take effect.</p>
+            <span class="pillar-highlight">$1.5M/yr insures $70–90M</span>
+        </div>
+    </div>
+</section>
+
+<hr class="divider">
+
+<!-- PRESENTATION SLIDES -->
+<section class="section fade-up">
+    <div class="section-label">Our Presentation</div>
+    <h2 class="section-title">20-Slide Deck: McKinsey Pyramid Structure</h2>
+    <p class="section-text" style="margin-bottom: 1rem;">
+        Our deck followed SCQA (Situation-Complication-Question-Answer) structure with answer-first slide titles, quantified assertions, and footnoted external sources. We delivered a 15-minute live presentation followed by 5 minutes of judge Q&A from McKinsey analysts.
+    </p>
+
+    <div class="slide-showcase">
+        <div class="slide-item">
+            <img src="images/wharton/slide-exec-summary.png" alt="Executive Summary slide showing Situation-Complication-Resolution framework">
+            <div class="slide-label">Executive Summary — SCQA Framework with Key Financial Targets</div>
+        </div>
+        <div class="slide-item">
+            <img src="images/wharton/slide-three-options.png" alt="Three strategic options evaluated: minimal compliance, targeted transformation, and full premium repositioning">
+            <div class="slide-label">Three Paths Forward — Only One Is Sustainable (Option B Recommended)</div>
+        </div>
+        <div class="slide-item">
+            <img src="images/wharton/slide-financial-impact.png" alt="Financial waterfall showing path from negative 9M to positive 6.5M net income">
+            <div class="slide-label">Financial Impact Waterfall — From –$9M to +$6.5M Net Income</div>
+        </div>
+        <div class="slide-item">
+            <img src="images/wharton/slide-conclusion.png" alt="Final conclusion slide with three pillars and four immediate action items">
+            <div class="slide-label">From Vulnerable Supplier to Resilient, Responsible Partner</div>
+        </div>
+    </div>
+</section>
+
+<hr class="divider">
+
+<!-- FINANCIAL IMPACT -->
+<section class="section fade-up">
+    <div class="section-label">Financial Model</div>
+    <h2 class="section-title">From –$9M to +$6.5M Net Income</h2>
+
+    <div class="waterfall">
+        <div class="waterfall-bar">
+            <div class="waterfall-value" style="color: #e74c3c;">–$9M</div>
+            <div class="waterfall-block negative" style="height: 90px;"></div>
+            <div class="waterfall-label">2025<br>Net Income</div>
+        </div>
+        <div class="waterfall-bar">
+            <div class="waterfall-value" style="color: var(--tech-blue);">+$15.4M</div>
+            <div class="waterfall-block positive" style="height: 154px;"></div>
+            <div class="waterfall-label">Fabric Waste<br>Savings</div>
+        </div>
+        <div class="waterfall-bar">
+            <div class="waterfall-value" style="color: var(--tech-blue);">+$1.2M</div>
+            <div class="waterfall-block positive" style="height: 30px;"></div>
+            <div class="waterfall-label">Productivity<br>Gains</div>
+        </div>
+        <div class="waterfall-bar">
+            <div class="waterfall-value" style="color: var(--tech-blue);">+$0.7M</div>
+            <div class="waterfall-block positive" style="height: 20px;"></div>
+            <div class="waterfall-label">ESG Contract<br>Premiums</div>
+        </div>
+        <div class="waterfall-bar">
+            <div class="waterfall-value" style="color: #e74c3c;">–$0.4M</div>
+            <div class="waterfall-block negative" style="height: 15px;"></div>
+            <div class="waterfall-label">Wage<br>Compliance</div>
+        </div>
+        <div class="waterfall-bar">
+            <div class="waterfall-value" style="color: #e74c3c;">–$1.5M</div>
+            <div class="waterfall-block negative" style="height: 25px;"></div>
+            <div class="waterfall-label">PFAS & Water<br>Upgrades</div>
+        </div>
+        <div class="waterfall-bar">
+            <div class="waterfall-value" style="color: var(--accent-cyan);">+$6.5M</div>
+            <div class="waterfall-block total" style="height: 65px;"></div>
+            <div class="waterfall-label">Year 5<br>Net Income</div>
+        </div>
+    </div>
+
+    <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="stat-card">
+            <div class="stat-number">7.5% → 14%</div>
+            <div class="stat-desc">EBITDA Margin Improvement</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">$7M</div>
+            <div class="stat-desc">Total 5-Year Investment</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-desc">Self-Funded via Waste Savings</div>
+        </div>
+    </div>
+</section>
+
+<hr class="divider">
+
+<!-- KEY INSIGHTS -->
+<section class="section fade-up">
+    <div class="section-label">Differentiation</div>
+    <h2 class="section-title">Key Insights & Differentiators</h2>
+
+    <div class="insights-grid">
+        <div class="insight-card">
+            <h4>Self-Funding Model</h4>
+            <p>Operational waste savings fund 100% of ESG compliance costs — no external capital required despite the company's $100M debt load. This was the central innovation of our strategy.</p>
+        </div>
+        <div class="insight-card">
+            <h4>The 80% Paradox</h4>
+            <p>80% of workers report job satisfaction despite severe labor violations. We reframed this as "economic dependence, not well-being" — the insight that reshaped the entire labor strategy.</p>
+        </div>
+        <div class="insight-card">
+            <h4>Gender Equity as ROI</h4>
+            <p>A $300K GEAR-style intervention returns $1.2M+ in productivity gains — framed as a commercial lever, not CSR. Scaling female supervisors from 5% to 20% drives measurable output.</p>
+        </div>
+        <div class="insight-card">
+            <h4>ESG as Pricing Power</h4>
+            <p>Compliance milestones contractually linked to 1–2% buyer premiums via 3–5 year ESG-linked contracts, turning a cost center into $2.4–4.8M additional annual revenue.</p>
+        </div>
+    </div>
+</section>
+
+<hr class="divider">
+
+<!-- TEAM -->
+<section class="section fade-up">
+    <div class="section-label">The Team</div>
+    <h2 class="section-title">Team 014</h2>
+
+    <div class="team-grid">
+        <div class="team-card" style="border-color: var(--tech-blue);">
+            <div class="team-avatar">LT</div>
+            <div class="team-info">
+                <h4>Linda Tali</h4>
+                <p>MS Business Information Technology, Drexel University · Strategy, Financial Modeling, Deck Design</p>
+            </div>
+        </div>
+        <div class="team-card">
+            <div class="team-avatar">MW</div>
+            <div class="team-info">
+                <h4>Melita Wessely</h4>
+                <p>Teammate · Research, ESG Analysis, Presentation Delivery</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="divider">
+
+<!-- MY ROLE -->
+<section class="section fade-up">
+    <div class="section-label">My Contributions</div>
+    <h2 class="section-title">What I Drove</h2>
+
+    <div class="role-grid">
+        <div class="role-item">
+            <h5>Financial Modeling</h5>
+            <p>Built the full P&L waterfall and 5-year ROI model</p>
+        </div>
+        <div class="role-item">
+            <h5>Strategy Architecture</h5>
+            <p>Designed the three-pillar self-funding framework</p>
+        </div>
+        <div class="role-item">
+            <h5>Deck Design</h5>
+            <p>20-slide McKinsey-structure presentation</p>
+        </div>
+        <div class="role-item">
+            <h5>AI/Digital Integration</h5>
+            <p>AI cutting, 3D sampling, ESG dashboard strategy</p>
+        </div>
+        <div class="role-item">
+            <h5>ESG-Commercial Linkage</h5>
+            <p>Buyer contract model tying premiums to milestones</p>
+        </div>
+        <div class="role-item">
+            <h5>Live Presentation</h5>
+            <p>Co-presented to McKinsey judges + handled Q&A</p>
+        </div>
+    </div>
+</section>
+
+<!-- BACK LINK -->
+<div class="back-link">
+    <a href="index.html">← Back to Portfolio</a>
+</div>
+
+<!-- SCROLL ANIMATION -->
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
