@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Linda Tali - SpendWise Smart Payment Recommendation Engine. Program-managed a two-project fintech build, vibecoded the MVP in Lovable, and connected Claude to Jira via MCP for live sprint monitoring.">
+    <meta name="keywords" content="Linda Tali, SpendWise, Vibecoding, Lovable, Claude MCP, Jira, Model Context Protocol, Fintech, AI Program Management, Agile, Software Project Management">
+    <title>SpendWise Smart Payment Recommendation Engine | Linda Tali</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1236TNZ977"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1236TNZ977');
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0a1628;
+            --tech-blue: #3b82f6;
+            --ai-purple: #8b5cf6;
+            --ai-cyan: #06b6d4;
+            --silver: #e5e7eb;
+            --light-gray: #f3f4f6;
+            --white: #ffffff;
+            --gray: #6b7280;
+            --success: #10b981;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: var(--navy);
+            background: var(--white);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1.5rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--tech-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .project-hero {
+            margin-top: 80px;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--navy), #1e3a5f);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+        }
+
+        .project-hero .container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--ai-purple), var(--ai-cyan));
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .project-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 3rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .meta-label {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 3rem 0 1.5rem;
+            color: var(--navy);
+        }
+
+        .content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1rem;
+            color: var(--navy);
+        }
+
+        .content h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 2rem 0 1rem;
+            color: var(--navy);
+        }
+
+        .content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #f3e8ff, #faf5ff);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin: 2.5rem 0;
+            border-left: 4px solid var(--ai-purple);
+        }
+
+        .highlight-box h4 {
+            color: #7c3aed;
+            margin-top: 0;
+        }
+
+        .problem-box {
+            background: linear-gradient(135deg, #fef2f2, #fff5f5);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin: 2.5rem 0;
+            border-left: 4px solid #ef4444;
+        }
+
+        .problem-box h4 {
+            color: #dc2626;
+            margin-top: 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.1);
+            border-top: 4px solid var(--ai-purple);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--ai-purple), var(--ai-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--gray);
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        .project-image {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+            margin: 2.5rem 0 0.75rem;
+            display: block;
+        }
+
+        .image-caption {
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-bottom: 2.5rem;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 0.8rem 0 0.8rem 2rem;
+            position: relative;
+            font-size: 1.05rem;
+            color: var(--gray);
+        }
+
+        ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--ai-purple);
+            font-weight: bold;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .tech-tag {
+            background: var(--light-gray);
+            color: var(--navy);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .project-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">LINDA TALI</a>
+            <a href="index.html#projects" class="back-link">← Back to Projects</a>
+        </div>
+    </nav>
+
+    <section class="project-hero">
+        <div class="container">
+            <span class="project-tag">AI Program Management · Vibecoding · Graduate Program</span>
+            <h1>SpendWise: Smart Payment Recommendation Engine</h1>
+            <p style="font-size: 1.3rem; opacity: 0.9; line-height: 1.8;">Program-managed a two-project fintech build end to end. Vibecoded the working MVP myself in Lovable, and connected Claude directly to our Jira board over MCP to monitor sprints and surface blockers without a single manual status meeting.</p>
+
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Product Owner / Program Manager</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Context</span>
+                    <span class="meta-value">Drexel University, SE 638</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Duration</span>
+                    <span class="meta-value">Mar–July 2026</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Tech</span>
+                    <span class="meta-value">Lovable, Claude + MCP, Jira</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="content">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">143</span>
+                <span class="stat-label">Story Points Across 2 Projects</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">35</span>
+                <span class="stat-label">SP/Sprint Velocity Baseline</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">5</span>
+                <span class="stat-label">AI Tools Chained Into One Workflow</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">1</span>
+                <span class="stat-label">No-Code MVP Built Solo</span>
+            </div>
+        </div>
+
+        <img src="images/projects/Spendwise%20Lovable.png" alt="SpendWise MVP dashboard showing checking balance, safe-to-spend amount, top spending categories, and upcoming bills" class="project-image">
+        <p class="image-caption">The SpendWise MVP, vibecoded solo in Lovable: checking balance, safe-to-spend, and top spending categories at a glance.</p>
+
+        <div class="highlight-box">
+            <h4>🎯 The Setup: A Real Program, Not a Toy Project</h4>
+            <p>SpendWise is a Smart Payment Recommendation Engine for a fictional fintech client: it analyzes a user's cash flow and recommends whether to pay a bill in full, split it, or postpone it. Straightforward enough as a concept. The catch is that it was scoped, budgeted, and run as an actual two-project program, using the SAFe Architectural Runway pattern: <strong>P1</strong>, a rule-based recommendation engine (90 story points), and <strong>P2</strong>, an ML scoring engine (53 story points) that overlaps P1's tail end by a month. 143 story points total, one program.</p>
+            <p style="margin-bottom: 0;">As Product Owner and Program Manager, I owned the business case, the budget (a $377K cost baseline with 10% contingency, tracked through EVM), the risk register, the sprint cadence, and a five-person cross-functional team: a frontend engineer, a data engineer, a backend engineer/Scrum Master, and a data scientist.</p>
+        </div>
+
+        <p>Running a program like that well means two things have to happen at once: the team needs to see progress fast, and the PM needs visibility into the board without becoming a bottleneck. That's where the two pieces below came in.</p>
+
+        <h2>Piece 1: Vibecoding the MVP in Lovable</h2>
+        <p>I'm not a developer. I didn't need to be. I built the working SpendWise MVP myself, solo, using Lovable, a no-code AI app builder, to turn the product requirements straight into a functioning interactive prototype.</p>
+
+        <p><strong>Why this mattered for the program, not just the demo:</strong></p>
+        <ul>
+            <li>It gave the team and stakeholders something to click through in week one instead of waiting on wireframes or a dev sprint. The MVP showcased the payment recommendation logic (pay in full / split / postpone) as a real, navigable interface.</li>
+            <li>It let me validate the UX and the business logic myself before a single engineering hour was spent on the front end, which kept the rule-based engine (P1) scoped tightly instead of getting redesigned mid-sprint.</li>
+            <li>It's a live artifact, not a mockup: <a href="https://wise-spend-advice.lovable.app" target="_blank" style="color: var(--tech-blue); font-weight: 600;">wise-spend-advice.lovable.app</a></li>
+        </ul>
+
+        <p>This is the skill I want a hiring manager to see directly: a PM who can go from requirements to a working prototype without waiting in an engineering queue, then hand that prototype to the team as a shared reference point instead of a slide deck.</p>
+
+        <h2>Piece 2: Connecting Claude to Jira Over MCP</h2>
+        <p>The second piece was wiring Claude directly into our Jira board (project KAN, 30+ tickets across three sprints) using the Model Context Protocol, so I could ask Claude to check sprint status, pull blocked tickets, and reason about risk exposure without opening Jira myself.</p>
+
+        <p><strong>What this actually replaced:</strong></p>
+        <ul>
+            <li>Manual sprint status checks and stand-up prep. Instead of scrolling the board before every check-in, I could ask directly for what changed, what's blocked, and what's at risk.</li>
+            <li>Static burndown snapshots. Claude could pull live ticket state and reason about velocity against our 35 SP/sprint baseline in the moment, not from a chart that was already a day old.</li>
+            <li>Blind spots on critical-path blockers. One example: a compliance ticket (CFPB filter logic) sat blocked pending legal sign-off. Because Claude had live board access, that blocker was visible and flagged as a program risk immediately, instead of surfacing at the next status meeting.</li>
+        </ul>
+
+        <p><strong>Why this is the more transferable skill:</strong> vibecoding gets you a fast prototype. An AI assistant with live, governed access to your actual PM tooling changes how you <em>run</em> the program day to day; less time spent translating between tools, more time spent on the judgment calls that actually need a human. That's the "so what" for anyone hiring a technical PM in 2026: can you make AI assistants part of your operating rhythm, not just your resume.</p>
+
+        <h2>Program Management Underneath It All</h2>
+        <p>The vibecoded MVP and the MCP-connected board are the two most demo-able pieces, but they sat on top of a full program management discipline:</p>
+        <ul>
+            <li><strong>Risk register (R1–R6):</strong> including R6, incomplete or delayed bank data, tracked from Assignment 3 through execution</li>
+            <li><strong>EVM tracking:</strong> Planned Value, Earned Value, and Actual Cost tracked against a $377,245 budget baseline</li>
+            <li><strong>Regulatory framing:</strong> CFPB guidance, the Investment Advisers Act of 1940, and GLBA data privacy built into the requirements from day one, not bolted on later</li>
+            <li><strong>MOV targets:</strong> churn reduction from 8% to 4%, premium conversion from 12% to 20%, defined up front as the measures of program success</li>
+        </ul>
+
+        <h3>The Visual Work Breakdown Structure</h3>
+        <p>Sprint plans in a spreadsheet are easy to write and hard to actually use in a stand-up. I built a visual WBS that maps the full program hierarchy, program → two projects → sprint-level work packages → individual Jira tickets, color-coded by status (done, in progress, blocked, reviewer gate, milestone), with every card traceable back to a real KAN ticket number.</p>
+
+        <img src="images/projects/Spendwise1.png" alt="SpendWise visual work breakdown structure showing the program broken into Project 1 (Recommendation Engine) and Project 2 (ML Scoring Engine), with sprint-level work packages and Jira ticket references" class="project-image">
+        <p class="image-caption">Program → projects → sprint work packages → Jira tickets, one map. Red borders mark critical-path items, purple marks reviewer gates.</p>
+
+        <p>The blocked compliance ticket (KAN-20) shows up right where it actually sits in the delivery chain, not buried in a separate risk log. That's the point: the team can see a blocker's downstream impact at a glance instead of cross-referencing three documents.</p>
+
+        <h2>A Dedicated Repo for the Technical Scope</h2>
+        <p>The program materials, this case study, the MVP link, the WBS, live in my main portfolio site. The technical scope work, system context, architecture, module-level dependency mapping, and compliance chain, lives in its own repository: <a href="https://github.com/lindatali/spendwise-a2" target="_blank" style="color: var(--tech-blue); font-weight: 600;">github.com/lindatali/spendwise-a2</a>, deployed separately via GitHub Pages at <a href="https://talindagroup.com/spendwise-a2/" target="_blank" style="color: var(--tech-blue); font-weight: 600;">talindagroup.com/spendwise-a2</a>.</p>
+
+        <img src="images/projects/Spendwise2.png" alt="SpendWise Assignment 2 dependency map showing the primary delivery chain from Bank API Integration through Cash Flow Analysis, Recommendation Engine, Compliance Filter, and Notification Delivery, with risk ratings for each dependency" class="project-image">
+        <p class="image-caption">Module-level dependency mapping (finish-to-start, start-to-start, finish-to-finish) with a risk rating on every link in the chain, from the separately hosted technical scope site.</p>
+
+        <p>Splitting it out wasn't arbitrary. The interactive dependency map, system context, and architecture views are a different artifact for a different audience than the program case study, so they got their own repo, their own deploy, and their own URL instead of getting crammed into one monolith. It's a small thing, but it's the same instinct that keeps a real engineering org's repos from turning into a single unmanageable folder.</p>
+
+        <h2>Skills Demonstrated</h2>
+
+        <div class="tech-stack">
+            <span class="tech-tag">Lovable</span>
+            <span class="tech-tag">Claude + MCP</span>
+            <span class="tech-tag">Jira</span>
+            <span class="tech-tag">GitHub Pages</span>
+            <span class="tech-tag">Agile/Scrum</span>
+            <span class="tech-tag">EVM Budgeting</span>
+            <span class="tech-tag">Risk Management</span>
+            <span class="tech-tag">Regulatory Compliance</span>
+        </div>
+
+        <ul>
+            <li><strong>AI-Assisted Vibecoding:</strong> Requirements → working prototype, no engineering handoff required</li>
+            <li><strong>Agentic Workflow Design:</strong> Claude + MCP wired into live PM tooling for real-time program visibility</li>
+            <li><strong>Two-Project Program Management:</strong> SAFe Architectural Runway pattern, overlapping timelines, shared budget</li>
+            <li><strong>Agile/Scrum Execution:</strong> Sprint planning, velocity tracking, burndown analysis across a 5-person team</li>
+            <li><strong>Budget & EVM:</strong> Cost baseline, contingency planning, PV/EV/AC tracking</li>
+            <li><strong>Risk Management:</strong> Structured risk register with live status tracking</li>
+            <li><strong>Regulatory & Compliance Framing:</strong> CFPB, GLBA, and fintech-specific compliance built into scope</li>
+            <li><strong>Multi-Repo Git Workflow:</strong> Separate repos and independent GitHub Pages deployments for the program case study vs. the technical scope deep-dive</li>
+        </ul>
+
+        <h2>Academic Context</h2>
+        <p><strong>Course:</strong> SE 638, Software Project Management<br>
+        <strong>Program:</strong> MS in Business Information Technology, Drexel University<br>
+        <strong>Instructor:</strong> Dr. Ram Arthanari<br>
+        <strong>Focus:</strong> Program-level Agile execution, AI-assisted project management tooling</p>
+
+        <p>This project is a graduate program management course deliverable. The MVP and Jira board reflect a real working prototype and a live sprint board, not a production fintech launch, run the way a real cross-functional program would be.</p>
+
+        <div style="text-align: center; margin: 4rem 0;">
+            <a href="https://wise-spend-advice.lovable.app" target="_blank" style="display: inline-block; padding: 1.2rem 2.5rem; background: linear-gradient(135deg, var(--ai-purple), var(--ai-cyan)); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; margin: 0.5rem;">View Live MVP</a>
+            <a href="https://talindagroup.com/spendwise-a2/" target="_blank" style="display: inline-block; padding: 1.2rem 2.5rem; background: white; color: var(--tech-blue); text-decoration: none; border-radius: 12px; font-weight: 700; border: 2px solid var(--tech-blue); margin: 0.5rem;">View Technical Scope Site</a>
+            <a href="https://github.com/lindatali/spendwise-a2" target="_blank" style="display: inline-block; padding: 1.2rem 2.5rem; background: white; color: var(--tech-blue); text-decoration: none; border-radius: 12px; font-weight: 700; border: 2px solid var(--tech-blue); margin: 0.5rem;">View on GitHub</a>
+            <a href="index.html#projects" style="display: inline-block; padding: 1.2rem 2.5rem; background: white; color: var(--navy); text-decoration: none; border-radius: 12px; font-weight: 700; border: 2px solid var(--navy); margin: 0.5rem;">← Back to Projects</a>
+        </div>
+    </div>
+
+    <footer style="background: var(--navy); color: white; text-align: center; padding: 3rem 2rem;">
+        <p style="color: var(--silver);">&copy; 2025 Linda Tali | Technical Program Manager</p>
+    </footer>
+</body>
+</html>
