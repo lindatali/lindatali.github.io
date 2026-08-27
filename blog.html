@@ -139,15 +139,31 @@
             box-shadow: 0 12px 40px rgba(59, 130, 246, 0.2);
         }
         
-        .blog-image {
-            width: 100%;
-            height: 220px;
-            background: linear-gradient(135deg, var(--tech-blue), var(--purple));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-        }
+       .blog-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.blog-card:hover .blog-image img {
+    transform: scale(1.04);
+}
+
+.blog-card.no-image {
+    border-top: 4px solid var(--tech-blue);
+}
+
+.blog-card.no-image .blog-content {
+    padding-top: 2.4rem;
+}
         
         .blog-content {
             padding: 2rem;
@@ -246,9 +262,8 @@
         
         <div class="blog-grid">
             <!-- Deloitte Datathon -->
-            <a href="deloitte-datathon.html" class="blog-card">
-                <div class="blog-image">📊</div>
-                <div class="blog-content">
+           <a href="deloitte-datathon.html" class="blog-card no-image">
+    <div class="blog-content">
                     <span class="blog-tag">Datathon</span>
                     <h3>Deloitte Datathon 2025: Supply Chain Optimization</h3>
                     <p>How our team tackled Deloitte's supply chain challenge using predictive analytics and data-driven decision making. Insights from a weekend of intense collaboration and problem-solving.</p>
@@ -261,9 +276,8 @@
             </a>
 
             <!-- SmartShoe AI (now internal project page) -->
-            <a href="smartshoe-ai-coordination.html" class="blog-card">
-                <div class="blog-image">🤖</div>
-                <div class="blog-content">
+            <a href="smartshoe-ai-coordination.html" class="blog-card no-image">
+    <div class="blog-content">
                     <span class="blog-tag">Agentic AI</span>
                     <h3>SmartShoe AI Coordination Layer</h3>
                     <p>Deep dive into architecting a multi-agent AI system for autonomous supply chain decision-making with 70% fewer plan changes and $600K cost avoidance.</p>
@@ -277,8 +291,7 @@
 
             <!-- Placeholder for future competitions -->
             <div class="blog-card coming-soon">
-                <div class="blog-image" style="background: linear-gradient(135deg, var(--gray), var(--silver));">🏆</div>
-                <div class="blog-content">
+    <div class="blog-content">
                     <span class="blog-tag">Coming Soon</span>
                     <h3>Upcoming Competitions & Projects</h3>
                     <p>More competition case studies, hackathon learnings, and technical project write-ups will be added as they're completed.</p>
@@ -294,7 +307,7 @@
         <div class="blog-grid">
             <!-- Link back to existing project pages -->
             <a href="tiktok-live-project.html" class="blog-card">
-                <div class="blog-image">🎥</div>
+    <div class="blog-image"><img src="images/projects/tiktok-1.jpg" alt="TikTok Live commerce project"></div>
                 <div class="blog-content">
                     <span class="blog-tag">Global Expansion</span>
                     <h3>TikTok Live: Scaling Livestream Commerce</h3>
@@ -304,7 +317,7 @@
             </a>
 
             <a href="alpha3d-ai-platform.html" class="blog-card">
-                <div class="blog-image">🎨</div>
+    <div class="blog-image"><img src="images/projects/alpha3d-1.jpg" alt="Alpha3D AI platform project"></div>
                 <div class="blog-content">
                     <span class="blog-tag">AI Platform</span>
                     <h3>Managing AI 3D Generation at Scale</h3>
@@ -313,8 +326,8 @@
                 </div>
             </a>
 
-            <a href="worlds-away-festival.html" class="blog-card">
-                <div class="blog-image">🎪</div>
+            <a href="worldsaway-festival.html" class="blog-card">
+    <div class="blog-image"><img src="images/projects/worlds-away-1.jpg" alt="World's Away Festival mixed reality experience"></div>
                 <div class="blog-content">
                     <span class="blog-tag">AR/XR</span>
                     <h3>World's Away Festival: Mixed Reality at Scale</h3>
