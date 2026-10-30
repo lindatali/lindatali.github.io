@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adobe Case Competition World Cup 2026 | Linda's Portfolio</title>
+    <meta name="description" content="Retargeting and lifecycle strategy for Quince, built on Adobe Customer Journey Analytics. One of 50 graduate teams in the Adobe-sponsored Case Competition World Cup.">
+    <meta property="og:title" content="Own the Second Order: Adobe Case Competition World Cup">
+    <meta property="og:description" content="How Adobe CJA data reshaped a retargeting and lifecycle strategy for Quince.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #f6f8fc;
+            --navy-mid: #eef2f9;
+            --navy-light: #e6ecf6;
+            --tech-blue: #2563c9;
+            --tech-blue-glow: #3a8ee8;
+            --accent-cyan: #0b7fb3;
+            --accent-purple: #8b5cf6;
+            --silver: #475569;
+            --silver-light: #334155;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --glass-bg: #f1f5fb;
+            --glass-border: #dbe3ef;
+            --glass-hover: rgba(45, 125, 210, 0.25);
+            --gradient-hero: linear-gradient(135deg, #ffffff 0%, #f1f5fc 55%, #eae9fb 100%);
+            --gradient-accent: linear-gradient(135deg, #2d7dd2 0%, #8b5cf6 100%);
+            --gradient-card: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .stat-card, .challenge-card, .pillar-card, .insight-card, .team-card, .role-item, .bars { box-shadow: 0 2px 12px rgba(15, 23, 42, 0.05); }
+        .team-info h4 a { color: inherit; text-decoration: none; }
+        .team-info h4 a:hover { color: var(--tech-blue); }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--navy);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ───── NAVIGATION ───── */
+        .nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-brand {
+            font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+            font-size: 1.1rem; color: var(--text-primary);
+            text-decoration: none; letter-spacing: -0.02em;
+        }
+        .nav-brand span { color: var(--tech-blue); }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.85rem; font-weight: 500;
+            letter-spacing: 0.03em; text-transform: uppercase; transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent-cyan); }
+
+        /* ───── HERO ───── */
+        .hero {
+            min-height: 80vh; display: flex; align-items: center;
+            padding: 8rem 2rem 4rem;
+            background: var(--gradient-hero); position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: -200px; right: -200px;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(45,125,210,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero::after {
+            content: ''; position: absolute; bottom: -100px; left: -100px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-inner {
+            max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; width: 100%;
+        }
+        .hero-tag {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(45, 125, 210, 0.15); border: 1px solid rgba(45, 125, 210, 0.3);
+            padding: 0.4rem 1rem; border-radius: 100px;
+            font-size: 0.8rem; font-weight: 600; color: var(--accent-cyan);
+            letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 700;
+            line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 1.5rem;
+        }
+        .hero h1 .highlight {
+            background: var(--gradient-accent); -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .hero-subtitle {
+            font-size: 1.15rem; color: var(--text-secondary);
+            max-width: 700px; margin-bottom: 2.5rem; line-height: 1.8;
+        }
+        .hero-meta {
+            display: flex; flex-wrap: wrap; gap: 2rem;
+            padding-top: 2rem; border-top: 1px solid var(--glass-border);
+        }
+        .meta-item { display: flex; flex-direction: column; gap: 0.3rem; }
+        .meta-label {
+            font-size: 0.7rem; font-weight: 600; color: var(--text-muted);
+            text-transform: uppercase; letter-spacing: 0.08em;
+        }
+        .meta-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem; font-weight: 600; color: var(--text-primary);
+        }
+
+        /* ───── SECTIONS ───── */
+        .section {
+            padding: 5rem 2rem; max-width: 1100px; margin: 0 auto;
+        }
+        .section-label {
+            font-size: 0.7rem; font-weight: 700; color: var(--tech-blue);
+            text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.8rem;
+        }
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700;
+            letter-spacing: -0.02em; margin-bottom: 1.5rem; line-height: 1.2;
+        }
+        .section-text {
+            font-size: 1.05rem; color: var(--text-secondary);
+            max-width: 800px; line-height: 1.9;
+        }
+
+        /* ───── STATS ───── */
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem; margin: 3rem 0;
+        }
+        .stat-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px; padding: 2rem; text-align: center;
+            transition: all 0.4s;
+        }
+        .stat-card:hover {
+            border-color: var(--tech-blue);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(45, 125, 210, 0.15);
+        }
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem; font-weight: 700;
+            background: var(--gradient-accent); -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .stat-desc {
+            font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;
+            line-height: 1.5;
+        }
+
+        /* ───── DIVIDER ───── */
+        .divider {
+            max-width: 1100px; margin: 0 auto;
+            border: none; border-top: 1px solid var(--glass-border);
+        }
+
+        /* ───── EVENT PHOTOS ───── */
+        .photo-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 1.5rem; margin: 3rem 0;
+        }
+        .photo-card {
+            border-radius: 16px; overflow: hidden;
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s;
+        }
+        .photo-card:hover {
+            border-color: var(--tech-blue);
+            transform: translateY(-4px);
+        }
+        .photo-card img {
+            width: 100%; height: 350px; object-fit: cover; display: block;
+        }
+        .photo-caption {
+            padding: 1rem 1.2rem;
+            background: var(--glass-bg);
+            font-size: 0.85rem; color: var(--text-secondary);
+        }
+
+        /* ───── CHALLENGE ───── */
+        .challenge-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem; margin: 3rem 0;
+        }
+        .challenge-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px; padding: 2rem;
+            border-top: 3px solid var(--tech-blue);
+            transition: all 0.4s;
+        }
+        .challenge-card:hover {
+            border-color: var(--glass-hover);
+            transform: translateY(-4px);
+        }
+        .challenge-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem; font-weight: 600; margin-bottom: 0.8rem;
+            color: var(--text-primary);
+        }
+        .challenge-card p {
+            font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;
+        }
+        .challenge-stat {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem; font-weight: 700; color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
+        }
+
+        /* ───── SOLUTION / PILLARS ───── */
+        .thesis-box {
+            background: linear-gradient(135deg, rgba(45,125,210,0.1) 0%, rgba(139,92,246,0.08) 100%);
+            border: 1px solid rgba(45, 125, 210, 0.25);
+            border-radius: 16px; padding: 2.5rem;
+            margin: 2.5rem 0; text-align: center;
+        }
+        .thesis-box blockquote {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem; font-weight: 600; font-style: italic;
+            color: var(--text-primary); line-height: 1.5;
+        }
+        .thesis-box .attribution {
+            font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;
+        }
+
+        .pillar-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem; margin: 3rem 0;
+        }
+        .pillar-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px; padding: 2rem;
+            transition: all 0.4s; position: relative; overflow: hidden;
+        }
+        .pillar-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 3px; background: var(--gradient-accent);
+        }
+        .pillar-card:hover {
+            border-color: var(--tech-blue);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(45, 125, 210, 0.15);
+        }
+        .pillar-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem; font-weight: 700;
+            background: var(--gradient-accent); -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; background-clip: text;
+            opacity: 0.3; margin-bottom: 0.5rem;
+        }
+        .pillar-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.15rem; font-weight: 600; margin-bottom: 1rem;
+        }
+        .pillar-card p {
+            font-size: 0.9rem; color: var(--text-secondary); line-height: 1.8;
+        }
+        .pillar-highlight {
+            display: inline-block; margin-top: 1rem;
+            background: rgba(45, 125, 210, 0.15); border: 1px solid rgba(45, 125, 210, 0.25);
+            padding: 0.3rem 0.8rem; border-radius: 8px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem; font-weight: 600; color: var(--accent-cyan);
+        }
+
+        /* ───── SLIDE SHOWCASE ───── */
+        .slide-showcase {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 1.5rem; margin: 3rem 0;
+        }
+        .slide-item {
+            border-radius: 12px; overflow: hidden;
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s;
+        }
+        .slide-item:hover {
+            border-color: var(--tech-blue);
+            box-shadow: 0 8px 30px rgba(45, 125, 210, 0.15);
+        }
+        .slide-item img {
+            width: 100%; display: block;
+        }
+        .slide-label {
+            padding: 0.8rem 1.2rem;
+            background: var(--glass-bg);
+            font-size: 0.8rem; color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* ───── WATERFALL ───── */
+        .waterfall {
+            display: flex; align-items: flex-end; justify-content: center;
+            gap: 0.8rem; margin: 3rem 0; padding: 2rem;
+            background: var(--gradient-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px; min-height: 300px;
+        }
+        .waterfall-bar {
+            display: flex; flex-direction: column; align-items: center;
+            gap: 0.5rem; flex: 1; max-width: 120px;
+        }
+        .waterfall-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem; font-weight: 700;
+        }
+        .waterfall-block {
+            width: 100%; border-radius: 6px; transition: all 0.3s;
+            min-height: 10px;
+        }
+        .waterfall-block.positive { background: linear-gradient(180deg, #2d7dd2, #3a8ee8); }
+        .waterfall-block.negative { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+        .waterfall-block.total { background: var(--gradient-accent); }
+        .waterfall-label {
+            font-size: 0.7rem; color: var(--text-muted);
+            text-align: center; line-height: 1.3;
+        }
+
+        /* ───── TEAM ───── */
+        .team-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem; margin: 3rem 0;
+        }
+        .team-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px; padding: 2rem;
+            display: flex; align-items: center; gap: 1.5rem;
+            transition: all 0.4s;
+        }
+        .team-card:hover {
+            border-color: var(--tech-blue); transform: translateY(-4px);
+        }
+        .team-avatar {
+            width: 56px; height: 56px; border-radius: 50%;
+            background: var(--gradient-accent);
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700; font-size: 1.2rem; color: white; flex-shrink: 0;
+        }
+        .team-info h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem; font-weight: 600;
+        }
+        .team-info p {
+            font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.2rem;
+        }
+
+        /* ───── KEY INSIGHTS ───── */
+        .insights-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem; margin: 3rem 0;
+        }
+        .insight-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px; padding: 2rem;
+            transition: all 0.4s;
+        }
+        .insight-card:hover {
+            border-color: var(--tech-blue); transform: translateY(-4px);
+        }
+        .insight-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem; font-weight: 600; margin-bottom: 0.8rem;
+            color: var(--accent-cyan);
+        }
+        .insight-card p {
+            font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;
+        }
+
+        /* ───── MY ROLE ───── */
+        .role-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1rem; margin: 3rem 0;
+        }
+        .role-item {
+            background: var(--gradient-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px; padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        .role-item:hover {
+            border-color: var(--tech-blue); transform: translateY(-2px);
+        }
+        .role-item h5 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem; font-weight: 600; color: var(--text-primary);
+        }
+        .role-item p {
+            font-size: 0.8rem; color: var(--text-muted); margin-top: 0.3rem;
+        }
+
+        /* ───── BACK LINK ───── */
+        .back-link {
+            text-align: center; padding: 4rem 2rem;
+        }
+        .back-link a {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            color: var(--tech-blue); text-decoration: none;
+            font-weight: 600; font-size: 1rem;
+            padding: 1rem 2.5rem; border-radius: 12px;
+            border: 1px solid var(--tech-blue);
+            transition: all 0.3s;
+        }
+        .back-link a:hover {
+            background: var(--tech-blue); color: white;
+        }
+
+        /* ───── SCROLL ANIMATIONS ───── */
+        .fade-up {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        /* ───── RESPONSIVE ───── */
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .photo-grid, .challenge-grid, .pillar-grid,
+            .slide-showcase, .team-grid, .insights-grid { grid-template-columns: 1fr; }
+            .role-grid { grid-template-columns: 1fr 1fr; }
+            .hero-meta { gap: 1.5rem; }
+            .nav-links { display: none; }
+            .waterfall { flex-wrap: wrap; gap: 0.5rem; }
+        }
+        @media (max-width: 480px) {
+            .stats-grid, .role-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ───── BAR CHARTS ───── */
+        .bars { background: var(--gradient-card); border: 1px solid var(--glass-border); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .bars h4 { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 600; margin-bottom: 1.5rem; }
+        .bar-row { display: grid; grid-template-columns: 160px 1fr 60px; align-items: center; gap: 1rem; margin-bottom: 0.9rem; }
+        .bar-name { font-size: 0.85rem; color: var(--text-secondary); }
+        .bar-track { height: 14px; background: #e8edf5; border-radius: 7px; overflow: hidden; }
+        .bar-fill { height: 100%; border-radius: 7px; background: linear-gradient(90deg, #2d7dd2, #3a8ee8); }
+        .bar-fill.hot { background: var(--gradient-accent); }
+        .bar-fill.low { background: linear-gradient(90deg, #e74c3c, #c0392b); }
+        .bar-val { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 0.9rem; text-align: right; }
+        .bars .note { font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem; }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .check-table { width: 100%; border-collapse: collapse; margin-top: 2rem; font-size: 0.9rem; }
+        .check-table th { text-align: left; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); padding: 0.8rem 1rem; border-bottom: 1px solid var(--glass-border); }
+        .check-table td { padding: 1rem; border-bottom: 1px solid var(--glass-border); color: var(--text-secondary); vertical-align: top; }
+        .check-table td:first-child { color: var(--text-primary); font-weight: 500; }
+        @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } .bar-row { grid-template-columns: 110px 1fr 50px; } .check-table { font-size: 0.8rem; } }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <a href="index.html" class="nav-brand">Linda <span>Tali</span></a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#contact">Contact</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-tag">Adobe Customer Journey Analytics · Graduate Track</div>
+        <h1>Case Competition World Cup:<br><span class="highlight">Own the Second Order</span></h1>
+        <p class="hero-subtitle">
+            A retargeting and lifecycle strategy for Quince, built on hands-on analysis in Adobe Customer Journey Analytics. Our team was one of 50 graduate teams selected for the Adobe-sponsored World Cup. I led the team and ran the CJA analysis that shaped our recommendation. For scale, the 2025 edition drew 250+ teams and 1,100+ students from 17 countries.
+        </p>
+        <div class="hero-meta">
+            <div class="meta-item"><span class="meta-label">Competition</span><span class="meta-value">Case Competition World Cup</span></div>
+            <div class="meta-item"><span class="meta-label">Date</span><span class="meta-value">October 2026</span></div>
+            <div class="meta-item"><span class="meta-label">Sponsor</span><span class="meta-value">Adobe</span></div>
+            <div class="meta-item"><span class="meta-label">Host</span><span class="meta-value">Management Consulted</span></div>
+            <div class="meta-item"><span class="meta-label">Selection</span><span class="meta-value">1 of 50 Graduate Teams</span></div>
+            <div class="meta-item"><span class="meta-label">Format</span><span class="meta-value">5-min Video + CJA Appendix</span></div>
+        </div>
+    </div>
+</section>
+
+<section class="section fade-up">
+    <div class="stats-grid">
+        <div class="stat-card"><div class="stat-number">24% → 31%</div><div class="stat-desc">projected 90-day repeat rate, inside the same $120M budget</div></div>
+        <div class="stat-card"><div class="stat-number">95%</div><div class="stat-desc">of cashmere buyers never viewed a second category</div></div>
+        <div class="stat-card"><div class="stat-number">4x</div><div class="stat-desc">higher repeat rate for app users vs unreachable customers</div></div>
+        <div class="stat-card"><div class="stat-number">518</div><div class="stat-desc">reachable, non-repeating buyers in our pilot audience</div></div>
+    </div>
+</section>
+
+<hr class="divider">
+
+<section class="section fade-up">
+    <div class="section-label">The Case</div>
+    <h2 class="section-title">Closing the Loop at Quince</h2>
+    <p class="section-text" style="margin-bottom: 2rem;">
+        Quince grew fast on viral products like its cashmere sweater, but most first-time buyers never come back. The brief: rework a $120M marketing budget to lift repeat purchase and lower blended CAC, with no discounting, and back every claim with evidence from Adobe Customer Journey Analytics.
+    </p>
+    <div class="challenge-grid">
+        <div class="challenge-card"><div class="challenge-stat">$14M vs $6M</div><h4>Renting, Not Owning</h4><p>Quince spent 2.3x more on paid retargeting than on email, SMS and app combined.</p></div>
+        <div class="challenge-card"><div class="challenge-stat">43%</div><h4>Unreachable Customers</h4><p>Almost half of customers bought on web without subscribing, so Quince had no free way to bring them back.</p></div>
+        <div class="challenge-card"><div class="challenge-stat">7.4%</div><h4>The Wedge That Doesn't Repeat</h4><p>Cashmere brought in 38% of first buyers but had the lowest repeat rate of any category.</p></div>
+    </div>
+</section>
+
+<hr class="divider">
+
+<section class="section fade-up">
+    <div class="section-label">Our Recommendation</div>
+    <h2 class="section-title">Own the Second Order</h2>
+    <div class="thesis-box">
+        <blockquote>"Quince doesn't have a loyalty problem. It has a second-order problem."</blockquote>
+        <div class="attribution">Its best acquisition product brings in customers it can't reach and never shows them a second category.</div>
+    </div>
+    <div class="pillar-grid">
+        <div class="pillar-card"><div class="pillar-number">01</div><h4>Fund</h4><p>Stop paying to retarget people Quince can already message for free, and shift part of prospecting spend into owned channels. Pure reallocation inside the existing budget.</p><span class="pillar-highlight">No new spend</span></div>
+        <div class="pillar-card"><div class="pillar-number">02</div><h4>Capture</h4><p>Get every first buyer into email, SMS or the app at checkout and through a QR code on existing packaging. Reachability was the strongest predictor of repeat in the data.</p><span class="pillar-highlight">3x to 4x repeat</span></div>
+        <div class="pillar-card"><div class="pillar-number">03</div><h4>Bridge</h4><p>Move cashmere buyers to Home within 90 days using material-led recommendations: cashmere sweater to cashmere throw, silk blouse to silk pillowcase. A story only Quince can tell.</p><span class="pillar-highlight">Cashmere to Home</span></div>
+    </div>
+</section>
+
+<hr class="divider">
+
+<section class="section fade-up">
+    <div class="section-label">The Presentation</div>
+    <h2 class="section-title">Team G5, Presenting Live</h2>
+    <p class="section-text">A 7-slide deck backed by 12 Adobe CJA appendix panels, delivered as a 5-minute video where every member presented. I opened with the thesis and walked through the customer and funnel analysis.</p>
+    <div class="slide-item" style="margin-top: 2rem;">
+        <img src="images/projects/adobe-team-presenting.jpg" alt="Team G5 presenting the Own the Second Order title slide over video call">
+        <div class="slide-label">Opening slide: Fund, Capture, Bridge, inside Quince's fixed $120M budget</div>
+    </div>
+    <div class="slide-showcase">
+        <div class="slide-item"><img src="images/projects/adobe-slide-exec-summary.jpg" alt="Executive summary slide"><div class="slide-label">Executive Summary: repeat rate from 24% to 28 to 31%, blended CAC down 10 to 12%</div></div>
+        <div class="slide-item"><img src="images/projects/adobe-slide-customer-funnel.jpg" alt="Customer and funnel analysis slide built on Adobe CJA"><div class="slide-label">Customer &amp; Funnel (my slide): 95% of cashmere buyers never see a second category</div></div>
+        <div class="slide-item"><img src="images/projects/adobe-slide-cja-attribution.jpg" alt="Adobe CJA Attribution IQ panel comparing last touch and algorithmic models"><div class="slide-label">CJA Attribution IQ: last-touch reporting under-credits owned channels</div></div>
+        <div class="slide-item"><img src="images/projects/adobe-slide-next-steps.jpg" alt="Next steps slide with pilot plan and budget moves"><div class="slide-label">Next Steps: pilot in the South, prove the lift, then scale, total stays $120M</div></div>
+    </div>
+</section>
+
+<hr class="divider">
+
+<section class="section fade-up">
+    <div class="section-label">What the Data Showed</div>
+    <h2 class="section-title">Findings from Adobe CJA</h2>
+    <p class="section-text">
+        The competition's simulated Quince dataset in Adobe CJA held 60,000 people, 2,592 customers and 2,863 orders. Groups were small, so I used CJA for ratios and comparisons and only trusted gaps big enough to survive the noise.
+    </p>
+    <div class="two-col">
+        <div class="bars"><h4>Repeat rate by first-purchase category</h4><div class="bar-row"><span class="bar-name">Cashmere</span><div class="bar-track"><div class="bar-fill low" style="width:49%"></div></div><span class="bar-val">7.4%</span></div><div class="bar-row"><span class="bar-name">Beauty</span><div class="bar-track"><div class="bar-fill " style="width:61%"></div></div><span class="bar-val">9.1%</span></div><div class="bar-row"><span class="bar-name">Apparel (other)</span><div class="bar-track"><div class="bar-fill " style="width:74%"></div></div><span class="bar-val">11.1%</span></div><div class="bar-row"><span class="bar-name">Jewelry</span><div class="bar-track"><div class="bar-fill " style="width:84%"></div></div><span class="bar-val">12.6%</span></div><div class="bar-row"><span class="bar-name">Home</span><div class="bar-track"><div class="bar-fill hot" style="width:95%"></div></div><span class="bar-val">14.3%</span></div><p class="note">Home buyers repeat at almost 2x the rate of cashmere buyers.</p></div>
+        <div class="bars"><h4>Repeat rate by reachability</h4><div class="bar-row"><span class="bar-name">Unreachable (web only)</span><div class="bar-track"><div class="bar-fill low" style="width:22%"></div></div><span class="bar-val">4.3%</span></div><div class="bar-row"><span class="bar-name">Email / SMS</span><div class="bar-track"><div class="bar-fill " style="width:68%"></div></div><span class="bar-val">13.7%</span></div><div class="bar-row"><span class="bar-name">App installed</span><div class="bar-track"><div class="bar-fill hot" style="width:90%"></div></div><span class="bar-val">18.0%</span></div><p class="note">Owned-channel customers are 57% of customers but 82% of repeat buyers.</p></div>
+    </div>
+    <div class="insights-grid">
+        <div class="insight-card"><h4>Nobody shows cashmere buyers anything else</h4><p>Only 44 of 983 cashmere buyers ever viewed another category, and just 15 viewed Home. The bridge has to create interest, not harvest it.</p></div>
+        <div class="insight-card"><h4>Last-touch reporting punishes the right move</h4><p>Under algorithmic attribution, email gained 58% more credit and SMS 124%, while retargeting lost 6%. Owned channels go from looking 11% more expensive per order to 27% cheaper.</p></div>
+        <div class="insight-card"><h4>The gap holds over time</h4><p>January app cohorts repeated at 21.8% vs 7.9% for web-only customers, and app users started coming back in the first month.</p></div>
+        <div class="insight-card"><h4>The funnel leak isn't a device problem</h4><p>77% of carts were abandoned, and mobile web and desktop converted identically. The fix is follow-up, not a site redesign.</p></div>
+    </div>
+</section>
+
+<hr class="divider">
+
+<section class="section fade-up">
+    <div class="section-label">Rigor</div>
+    <h2 class="section-title">What We Checked That Didn't Hold Up</h2>
+    <p class="section-text">Some of our early ideas didn't survive the data. We dropped them instead of building slides on them.</p>
+    <table class="check-table">
+        <tr><th>Idea</th><th>What CJA showed</th><th>What we did</th></tr>
+        <tr><td>Mobile web is the checkout problem</td><td>Mobile web and desktop converted the same</td><td>Dropped it. Focused on follow-up</td></tr>
+        <tr><td>Retargeting is hugely over-credited</td><td>It lost only 6% under algorithmic attribution</td><td>Led with owned channels being under-credited instead</td></tr>
+        <tr><td>Cashmere buyers already browse Home</td><td>Only 15 of 983 did</td><td>Designed the bridge to create intent</td></tr>
+        <tr><td>One region leaks the most</td><td>Opt-in was similar across regions</td><td>Kept the South as the pilot only because it's the largest base</td></tr>
+    </table>
+</section>
+
+<hr class="divider">
+
+<section class="section fade-up">
+    <div class="section-label">The Team</div>
+    <h2 class="section-title">Pixelforge</h2>
+    <div class="team-grid">
+        <div class="team-card" style="border-color: var(--tech-blue);"><div class="team-avatar">LT</div><div class="team-info"><h4><a href="https://www.linkedin.com/in/linda-tali/" target="_blank" rel="noopener">Linda Tali</a></h4><p>Team Lead · CJA Analysis, Strategy Synthesis, Customer &amp; Funnel</p></div></div>
+        <div class="team-card"><div class="team-avatar">MW</div><div class="team-info"><h4>Melita Wessely</h4><p>Teammate · Market Context &amp; Strategy</p></div></div>
+        <div class="team-card"><div class="team-avatar">BC</div><div class="team-info"><h4><a href="https://www.linkedin.com/in/bradchikwavarara/" target="_blank" rel="noopener">Bradley Chikwavarara</a></h4><p>Teammate · Capabilities &amp; Next Steps</p></div></div>
+        <div class="team-card"><div class="team-avatar">TI</div><div class="team-info"><h4><a href="https://www.linkedin.com/in/teniola-ismail/" target="_blank" rel="noopener">Teniola Ismail</a></h4><p>Teammate · Competitive Landscape</p></div></div>
+    </div>
+</section>
+
+<hr class="divider">
+
+<section class="section fade-up">
+    <div class="section-label">My Contributions</div>
+    <h2 class="section-title">What I Drove</h2>
+    <div class="role-grid">
+        <div class="role-item"><h5>Team Leadership</h5><p>Ran the team through a deadline shifted by a platform outage</p></div>
+        <div class="role-item"><h5>CJA Analysis</h5><p>Built 12 Workspace panels: fallout, attribution, cohorts, segments</p></div>
+        <div class="role-item"><h5>Hypothesis</h5><p>Merged the team's ideas into "Own the second order"</p></div>
+        <div class="role-item"><h5>Audience Build</h5><p>Defined the 518-person pilot segment in CJA</p></div>
+        <div class="role-item"><h5>Findings Briefing</h5><p>Wrote the evidence doc every slide drew from</p></div>
+        <div class="role-item"><h5>Presentation</h5><p>Presented the opening and the customer and funnel analysis</p></div>
+    </div>
+</section>
+
+<div class="back-link"><a href="index.html">← Back to Portfolio</a></div>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
